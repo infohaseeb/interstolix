@@ -1,71 +1,491 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon - Interstolix</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interstolix | Elevate Beyond the Cloud</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <style>
     
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Interstolix - Elevate Beyond the Cloud with AI. Delivering intelligent cloud solutions powered by AI & Machine Learning. Stay tuned!">
-    <meta name="keywords" content="Interstolix, AI, Cloud Computing, Machine Learning, Software Development, Web Apps, Cloud Solutions">
-    <meta name="author" content="Interstolix">
-    
-    <!-- Open Graph / Facebook Meta Tags -->
-    <meta property="og:title" content="Interstolix - Elevate Beyond the Cloud with AI">
-    <meta property="og:description" content="We're crafting intelligent cloud solutions powered by AI & Machine Learning. Stay tuned for something amazing!">
-    <meta property="og:url" content="https://interstolix.com">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Interstolix - Elevate Beyond the Cloud with AI">
-    <meta name="twitter:description" content="Delivering intelligent cloud solutions powered by AI & Machine Learning. Stay tuned!">
-    
-    <!-- Favicon -->
-    
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <style>
-        body {
-            background: linear-gradient(45deg, #1e3c72, #2a5298, #6a11cb, #2575fc);
-            background-size: 300% 300%;
-            animation: gradientBG 10s ease infinite;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            font-family: Arial, sans-serif;
-        }
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        .coming-soon {
-            max-width: 600px;
-            padding: 20px;
-        }
-        .btn-primary {
-            background-color: #ff9800;
-            border: none;
-            padding: 12px 24px;
-            font-size: 18px;
-            border-radius: 30px;
-        }
-        .btn-primary:hover {
-            background-color: #ff5722;
-        }
-    </style>
+  </style>
 </head>
 <body>
-    <div class="coming-soon">
-        <h1 class="fw-bold">Interstolix</h1>
-        <h3>Elevate Beyond the Cloud with AI</h3>
-        <p class="mt-3">We're crafting intelligent cloud solutions powered by AI & Machine Learning.<br>Stay tuned for something amazing!</p>
-    </div>
+
+  <!-- 🔹 Topbar -->
+<div class="topbar">
+  <div class="boxed py-1 border-bottom border-secondary small">
     
+    <!-- Mobile View Row -->
+    <div class="d-flex d-md-none justify-content-between align-items-center">
+      <div><i class="bi bi-telephone me-1"></i> +92 313 4490790</div>
+      <div><i class="bi bi-clock me-1"></i> Mon–Fri 9AM–6PM</div>
+    </div>
+
+    <!-- Desktop View Row -->
+    <div class="d-none d-md-flex flex-wrap justify-content-between align-items-center">
+      <div class="d-flex align-items-center gap-3">
+        <div><i class="bi bi-telephone me-1"></i> +92 313 4490790</div>
+        <div><i class="bi bi-clock me-1"></i> Mon–Fri 9AM–6PM</div>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <div><i class="bi bi-envelope me-1"></i> support@interstolix.com</div>
+        <div><i class="bi bi-geo-alt me-1"></i> Lahore, Pakistan</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+  <!-- 🔹 Navbar -->
+   
+  <nav class="navbar navbar-expand-lg mt-3 boxed">
+    <div class="container-fluid d-flex align-items-center">
+      
+      <!-- Logo -->
+      <a class="navbar-brand" href="#">
+        <img src="logointer1.png" alt="Interstolix Logo">
+      </a>
+
+      <!-- Toggler -->
+      <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+    <!-- Centered Menu -->
+<div class="collapse navbar-collapse justify-content-center" id="mainNav">
+  <ul class="navbar-nav mb-2 mb-lg-0 d-flex gap-3">
+    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Company</a></li>
+
+
+  
+
+    <li class="nav-item"><a class="nav-link" href="#solutions">Solutions</a></li>
+    <li class="nav-item"><a class="nav-link" href="#Insights">Insights</a></li>
+        <li class="nav-item"><a class="nav-link" href="#invester">Investers</a></li>
+                <li class="nav-item"><a class="nav-link" href="#career">Careers</a></li>
+
+
+        
+  </ul>
+</div>
+
+      <!-- CTA Buttons -->
+      <div class="d-flex gap-2 ms-auto">
+        <a href="#contact" class="btn btn-outline-light btn-sm">Contact Us</a>
+        <a href="#quote" class="btn btn-primary btn-sm">Get a Quote</a>
+      </div>
+
+    </div>
+  </nav>
+
+
+  
+
+<!-- 🔹 Hero Section -->
+<section class="hero-section text-white py-5">
+  <div class="boxed hero-card d-flex flex-column flex-lg-row align-items-center gap-5">
+    
+    <!-- Left: Text -->
+    <div class="flex-grow-1 text-center text-lg-start">
+      <h2 class="h4 text-info mb-3">Elevate Beyond the Cloud with AI</h2>
+      <p class="lead mb-4">
+        We're crafting intelligent cloud solutions powered by Artificial Intelligence and Machine Learning.  
+        <br class="d-none d-lg-block" />Stay tuned — something amazing is on the horizon.
+      </p>
+      <div class="d-flex gap-3 flex-wrap justify-content-center justify-content-lg-start">
+        <a href="#contact" class="btn btn-outline-light btn-lg px-4">Join the Waitlist</a>
+        <a href="#quote" class="btn btn-primary btn-lg px-4">Get Early Access</a>
+      </div>
+    </div>
+
+    <!-- Right: Image -->
+    <div class="hero-image position-relative">
+      <div class="glow-bg"></div>
+      <img src="cloud.png" alt="AI Cloud Illustration" class="img-fluid rounded">
+    </div>
+
+  </div>
+</section>
+<!-- 🔹 Stats Section -->
+<section class="stats-section text-white py-5">
+  <div class="boxed text-center">
+    <h2 class="display-5 fw-bold mb-4">Our Impact in Numbers</h2>
+    <p class="lead text-secondary mb-5">Delivering scalable solutions with proven results across global cloud infrastructure.</p>
+
+    <div class="row text-center g-4">
+      
+      <!-- Stat 1 -->
+      <div class="col-md-3">
+        <div class="stat-card p-4 rounded-4 shadow-sm h-100">
+          <h3 class="display-4 fw-bold text-info">150+</h3>
+          <p class="text-secondary mb-0">Cloud Deployments</p>
+        </div>
+      </div>
+
+      <!-- Stat 2 -->
+      <div class="col-md-3">
+        <div class="stat-card p-4 rounded-4 shadow-sm h-100">
+          <h3 class="display-4 fw-bold text-info">99.99%</h3>
+          <p class="text-secondary mb-0">Infrastructure Uptime</p>
+        </div>
+      </div>
+
+      <!-- Stat 3 -->
+      <div class="col-md-3">
+        <div class="stat-card p-4 rounded-4 shadow-sm h-100">
+          <h3 class="display-4 fw-bold text-info">80+</h3>
+          <p class="text-secondary mb-0">Custom Cloud Apps</p>
+        </div>
+      </div>
+
+      <!-- Stat 4 -->
+      <div class="col-md-3">
+        <div class="stat-card p-4 rounded-4 shadow-sm h-100">
+          <h3 class="display-4 fw-bold text-info">20+</h3>
+          <p class="text-secondary mb-0">Enterprise Clients</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- 🔹 Our Capabilities Section -->
+<section class="capabilities-section text-white py-5">
+  <div class="boxed text-center">
+    <h2 class="display-5 fw-bold mb-4">Our Capabilities</h2>
+    <p class="lead text-secondary mb-5">
+      Cloud-native solutions engineered for scale, security, and innovation — across every major platform.
+    </p>
+
+    <div class="row g-4">
+      <!-- Capability 1 -->
+      <div class="col-md-4 d-flex">
+        <div class="card capability-card border-0 rounded-4 w-100 p-4 shadow-sm text-center">
+          <i class="bi bi-cloud-fill fs-1 text-info mb-3"></i>
+          <h5 class="fw-bold mb-2">Multi-Cloud Deployments</h5>
+          <p class="text-secondary">
+            We design and deploy on AWS, Azure, Google Cloud, DigitalOcean, and hybrid setups tailored to your business.
+          </p>
+        </div>
+      </div>
+
+      <!-- Capability 2 -->
+      <div class="col-md-4 d-flex">
+        <div class="card capability-card border-0 rounded-4 w-100 p-4 shadow-sm text-center">
+          <i class="bi bi-diagram-3-fill fs-1 text-info mb-3"></i>
+          <h5 class="fw-bold mb-2">Infrastructure Engineering</h5>
+          <p class="text-secondary">
+            We build scalable, automated infrastructure using Terraform, Kubernetes, Docker, and serverless tools.
+          </p>
+        </div>
+      </div>
+
+      <!-- Capability 3 -->
+      <div class="col-md-4 d-flex">
+        <div class="card capability-card border-0 rounded-4 w-100 p-4 shadow-sm text-center">
+          <i class="bi bi-layers-fill fs-1 text-info mb-3"></i>
+          <h5 class="fw-bold mb-2">Custom Cloud Software</h5>
+          <p class="text-secondary">
+            Build tailored SaaS platforms and cloud-native apps that integrate deeply with your tech stack and goals.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- 🔹 Partners Section -->
+<section class="partners-section text-white py-5">
+  <div class="boxed text-center mb-4">
+    <h2 class="display-6 fw-bold">Our Trusted Partners</h2>
+    <p class="text-secondary">We collaborate with industry leaders to deliver cutting-edge cloud solutions.</p>
+  </div>
+
+  <div class="boxed">
+    <div class="logo-slider">
+      <div class="logo-track">
+        <img src="aws.png" alt="AWS">
+        <img src="azure.png" alt="Azure">
+        <img src="GOO.svg" alt="Google Cloud">
+        <img src="DigitalOcean_logo.png" alt="DigitalOcean">
+      
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<!-- 🔹 Why Interstolix Section -->
+<section class="why-section text-white py-5">
+  <div class="boxed hero-card text-center">
+    <h2 class="display-5 fw-bold mb-4">Why Choose Interstolix?</h2>
+    <p class="lead text-secondary mb-5">We're not just building cloud systems — we're shaping the future with intelligence.</p>
+
+    <div class="row g-4">
+      
+      <!-- Feature 1 -->
+      <div class="col-md-4 d-flex">
+        <div class="card feature-card border-0 rounded-4 w-100 p-4 shadow-sm">
+          <i class="bi bi-cpu-fill fs-1 text-info mb-3"></i>
+          <h5 class="fw-bold mb-2">AI-Driven Architecture</h5>
+          <p class="text-secondary">Our solutions learn, adapt, and optimize automatically — so your business stays ahead of the curve.</p>
+        </div>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="col-md-4 d-flex">
+        <div class="card feature-card border-0 rounded-4 w-100 p-4 shadow-sm">
+          <i class="bi bi-cloud-check-fill fs-1 text-info mb-3"></i>
+          <h5 class="fw-bold mb-2">Scalable Cloud Ecosystems</h5>
+          <p class="text-secondary">From startups to enterprises — we build infrastructure that grows as you do, seamlessly.</p>
+        </div>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="col-md-4 d-flex">
+        <div class="card feature-card border-0 rounded-4 w-100 p-4 shadow-sm">
+          <i class="bi bi-shield-lock-fill fs-1 text-info mb-3"></i>
+          <h5 class="fw-bold mb-2">Enterprise-Grade Security</h5>
+          <p class="text-secondary">Built-in encryption, compliance, and zero-trust design — security is our foundation, not a feature.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="testimonials-section text-white py-5">
+  <div class="boxed text-center">
+    <h2 class="display-5 fw-bold mb-4">What Our Clients Say</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="p-4 rounded  shadow-sm">
+          <p class="text-secondary">“Interstolix transformed our cloud infrastructure — their AI solutions are game-changing.”</p>
+          <h6 class="mt-3 text-white">— CTO, GlobalTech</h6>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="p-4 rounded  shadow-sm">
+          <p class="text-secondary">“Reliable, scalable, and smart — couldn’t ask for a better partner for our SaaS platform.”</p>
+          <h6 class="mt-3 text-white">— Founder, SaaSCo</h6>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="p-4 rounded  shadow-sm">
+          <p class="text-secondary">“Top-notch cloud security. Their engineers really know their stuff.”</p>
+          <h6 class="mt-3 text-white">— IT Director, FinEdge</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<section class="faq-section text-white py-5">
+  <div class="boxed">
+    <h2 class="display-5 fw-bold text-center mb-4">Frequently Asked Questions</h2>
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item  text-white border-0 mb-2">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed  text-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+            What industries do you serve?
+          </button>
+        </h2>
+        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body text-secondary">
+            We work with tech startups, finance, healthcare, e-commerce, and enterprise businesses.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item  text-white border-0 mb-2">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed  text-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+            Do you offer support after deployment?
+          </button>
+        </h2>
+        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body text-secondary">
+            Yes, we offer managed support, monitoring, and optimization after deployment.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="newsletter-section py-5 text-dark">
+  <div class="container">
+    <div class="row gy-4 align-items-center">
+      <!-- Text -->
+      <div class="col-12 col-lg-6 text-center text-lg-start">
+        <h3 class="fw-bold mb-2">Stay Updated</h3>
+        <p class="text-secondary mb-0">Get the latest updates on AI, Cloud, and Infrastructure solutions.</p>
+      </div>
+
+      <!-- Form -->
+      <div class="col-12 col-lg-6">
+        <form class="newsletter-form d-flex flex-column flex-sm-row gap-2 justify-content-center justify-content-lg-end">
+          <input type="email" class="form-control" placeholder="Enter your email" required>
+          <button type="submit" class="btn btn-primary px-4">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 🔹 Footer -->
+<footer class="site-footer footer text-white pt-5 pb-4">
+  <div class="boxed px-3">
+    <div class="row gy-4 text-center text-md-start">
+      
+      <!-- Logo -->
+      
+ <div class="col-12 col-md-4 text-md-start text-center">
+  <img src="logointer1.png" alt="Interstolix Logo" class="footer-logo mb-3">
+  <p class="text-secondary small">Interstolix engineers modern cloud, AI, and infrastructure solutions tailored for businesses across the globe.</p>
+</div>
+
+
+      <!-- Company -->
+      <div class="col-6 col-md-2">
+        <h6 class="fw-bold mb-3">Company</h6>
+        <ul class="list-unstyled text-secondary small">
+          <li><a href="#" class="footer-link">About Interstolix</a></li>
+          <li><a href="#" class="footer-link">Careers</a></li>
+          <li><a href="#" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div class="col-6 col-md-3">
+        <h6 class="fw-bold mb-3">Privacy & Legal</h6>
+        <ul class="list-unstyled text-secondary small">
+          <li><a href="#" class="footer-link">Your Privacy Choices</a></li>
+          <li><a href="#" class="footer-link">Consumer Health Privacy</a></li>
+          <li><a href="#" class="footer-link">Terms of Use</a></li>
+          <li><a href="#" class="footer-link">Trademarks</a></li>
+          <li><a href="#" class="footer-link">About Our Ads</a></li>
+        </ul>
+      </div>
+
+      <!-- Support -->
+      <div class="col-12 col-md-3">
+        <h6 class="fw-bold mb-3">Support</h6>
+        <ul class="list-unstyled text-secondary small">
+          <li>Email: support@interstolix.com</li>
+          <li>Phone: +92 300 1234567</li>
+        </ul>
+        <div class="mt-3 d-flex justify-content-center justify-content-md-start gap-3">
+          <a href="#" class="text-secondary"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-secondary"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="text-secondary"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+   <hr class="border-secondary mt-4">
+
+<div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 gap-2">
+  <p id="user-country" class="mb-0 text-secondary small">Language: Detecting...</p>
+  <div class="text-secondary small text-center text-md-end">
+    &copy; Interstolix LLC 2025. All rights reserved.
+  </div>
+</div>
+
+  </div>
+</footer>
+
+
+
+
+
+<!-- 🔹 Scroll Progress Bar -->
+<div id="scroll-progress-bar"></div>
+<button class="scroll-to-top" id="scrollToTopBtn">
+  <i class="bi bi-chevron-up"></i>
+</button>
+
+
+
+
+
+
+
+  <!-- Bootstrap Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+
+
+<script src="script.js"></script>
+
 </body>
 </html>

@@ -628,7 +628,6 @@ html, body {
 
 /* Fix wide elements on mobile */
 * {
-  max-width: 100%;
   box-sizing: border-box;
 }
 

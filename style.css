@@ -60,7 +60,6 @@ body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   transition: top 0.3s ease-in-out;
-
 }
 
 .navbar-brand img {
@@ -69,10 +68,13 @@ body {
   display: block;
 }
 
+/* Main navbar links: Only underline (no background change) on hover/active */
 .navbar-nav .nav-link {
   color: #fff !important;
   font-weight: 500;
   position: relative;
+  background: transparent !important;
+  transition: color 0.2s;
 }
 
 .navbar-nav .nav-link::after {
@@ -81,14 +83,110 @@ body {
   left: 0;
   bottom: 0;
   width: 0;
-  height: 2px;
-  background-color: #00b8e6 ;
-  transition: width 0.3s ease-in-out;
+  height: 1px; /* Very thin underline */
+  background-color: #00b8e6;
+  transition: width 0.3s;
 }
 
 .navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link:focus::after,
 .navbar-nav .nav-link.active::after {
   width: 100%;
+}
+
+/* Remove highlight on hover/focus/active for main nav links */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus,
+.navbar-nav .nav-link.active {
+  color: #fff !important;
+  background: transparent !important;
+}
+
+/* Hide underline from main menu items with dropdown */
+.navbar-nav .dropdown > .nav-link::after {
+  width: 0 !important;
+  transition: none !important;
+}
+.navbar-nav .dropdown:hover > .nav-link::after,
+.navbar-nav .dropdown:focus > .nav-link::after,
+.navbar-nav .dropdown > .nav-link.active::after {
+  width: 0 !important;
+}
+
+
+
+/* Dropdown caret: modern look and visible */
+.navbar .dropdown-toggle::after {
+  display: inline-block;
+  margin-left: 0.35em;
+  vertical-align: 0.15em;
+
+  border-bottom: 0;
+  border-left: 0.45em solid transparent;
+  content: "";
+}
+
+/* Dropdown menu styling: flush with navbar */
+.navbar .dropdown-menu {
+  left: 0 !important;
+  right: auto !important;
+  min-width: 100%;
+  width: max-content;
+  border-radius: 0.7rem;
+  margin-top: 27px !important;
+  background-color: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: none;
+  box-shadow: none;
+  transition: none;
+  z-index: 2000;
+}
+
+/* Dropdown items: underline only, no highlight */
+.dropdown-item {
+  position: relative;
+  color: #fff;
+  font-weight: 500;
+  
+  padding: 0.5rem 1.5rem;
+  background: transparent !important;
+  transition: color 0.2s;
+}
+
+.dropdown-item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 8px;
+  width: 0;
+  height: 1px; /* Very thin underline */
+  background-color: #00b8e6;
+  transition: width 0.3s;
+}
+.dropdown-item:hover::after,
+.dropdown-item:focus::after,
+.dropdown-item.active::after {
+  width: 100%;
+}
+.dropdown-item:hover,
+.dropdown-item:focus,
+.dropdown-item.active {
+  background: transparent !important;
+  color: #fff !important;
+}
+
+/* Navbar dropdown: hover pe show ho (desktop only) */
+@media (min-width: 992px) {
+  .navbar .dropdown:hover > .dropdown-menu {
+    display: block;
+    margin-top: 0;
+  }
+}
+
+/* Dropdown-toggle ke liye bhi underline (hover pe) */
+.navbar-nav .dropdown:hover > .nav-link {
+  color: #fff !important;
 }
 
 /* Common Button Style */
@@ -129,9 +227,181 @@ body {
 }
 
 
+/* Hide caret by default */
+.navbar .dropdown-toggle::after {
+  display: none;
+}
 
 
 
+
+
+
+
+.navbar .dropdown .mega-menu {
+  position: absolute;
+  top: 100%;        /* Navbar ke neeche */
+  left: 0;          /* Navbar ke start se align */
+  width: 100vw;     /* Pure screen width */
+  margin-left: 0 !important; /* Extra shift hatao */
+}.navbar .dropdown {
+  position: static !important; /* relative ki chain tod do */
+}
+/* Sirf Solutions ke mega menu ko fix karo */
+.navbar .dropdown.solutions {
+  position: static !important; /* chain tod do */
+}
+
+.navbar .dropdown.solutions .mega-menu {
+  position: absolute;
+  top: calc(100% + 1px); /* thoda neeche navbar ke border ke baad */
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin: 0;
+  border-radius: 0; /* rounding hatao */
+  padding: 2rem 3rem;
+}
+
+
+
+
+
+
+.navbar .dropdown-menu {
+  position: absolute;
+  top: calc(100% + 1px); /* navbar ke neeche */
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin: 0;
+  border-radius: 0;
+  padding: 2rem 3rem;
+
+  /* 🔹 Gradient solid background */
+  background: linear-gradient(-45deg, #010A17, #0a0f1c, #0d1b2a, #010A17);
+
+  /* 🔹 Blur on top */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 2000;
+}
+
+/* 🔹 Mobile view fix */
+@media (max-width: 991px) {
+  .navbar .dropdown-menu {
+    position: static !important;   /* collapse ke andar flow ke sath */
+    width: 100% !important;
+    padding: 1rem 1rem;
+    border: none;
+    border-radius: 0;
+    background: #010A17 !important; /* solid bg rakho taake clear dikhe */
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+
+    max-height: 60vh;      /* dropdown mobile me limit */
+    overflow-y: auto;      /* agar zyada items hon to scroll ho */
+  }
+
+  /* Mega menu grid ko stack kar do */
+  .navbar .dropdown-menu .row {
+    display: flex;
+    flex-direction: column !important;
+    margin: 0 !important;
+  }
+
+  /* Columns 100% width + spacing */
+  .navbar .dropdown-menu .col-lg-2,
+  .navbar .dropdown-menu .col-lg-3,
+  .navbar .dropdown-menu .col-md-4,
+  .navbar .dropdown-menu .col-md-6 {
+    width: 100% !important;
+    margin-bottom: 1rem;
+    padding: 0 !important;
+  }
+
+  /* Headers aur items align left */
+  .navbar .dropdown-menu .dropdown-header {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0.5rem 0;
+    text-align: left;
+  }
+
+  .navbar .dropdown-menu .dropdown-item {
+    padding: 0.4rem 0;
+    font-size: 0.9rem;
+    color: #ddd;
+    text-align: left;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 🔹 Mobile view fix */
+@media (max-width: 991px) {
+  .navbar .dropdown-menu {
+    position: static !important;   /* collapse ke andar flow ke sath */
+    width: 100% !important;
+    padding: 1rem 1rem;
+    border: none;
+    border-radius: 0;
+    background: linear-gradient(-45deg, #010A17, #0a0f1c, #0d1b2a, #010A17) !important; 
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+
+    max-height: 60vh;      /* dropdown mobile me limit */
+    overflow-y: auto;      /* agar zyada items hon to scroll ho */
+  }
+
+  /* Mega menu grid ko stack kar do */
+  .navbar .dropdown-menu .row {
+    display: flex;
+    flex-direction: column !important;
+    margin: 0 !important;
+  }
+
+  /* Columns 100% width + spacing */
+  .navbar .dropdown-menu .col-lg-2,
+  .navbar .dropdown-menu .col-lg-3,
+  .navbar .dropdown-menu .col-md-4,
+  .navbar .dropdown-menu .col-md-6 {
+    width: 100% !important;
+    margin-bottom: 1rem;
+    padding: 0 !important;
+  }
+
+  /* Headers aur items align left */
+  .navbar .dropdown-menu .dropdown-header {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0.5rem 0;
+    text-align: left;
+  }
+
+  .navbar .dropdown-menu .dropdown-item {
+    padding: 0.4rem 0;
+    font-size: 0.9rem;
+    color: #ddd;
+    text-align: left;
+  }
+}
 
 
 /* Hero Section */

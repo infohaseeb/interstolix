@@ -66,3 +66,19 @@
     const scrolled = (scrollTop / docHeight) * 100;
     document.getElementById('scroll-progress-bar').style.width = scrolled + '%';
   });
+
+
+  function openPopup(id) {
+      document.getElementById(id).classList.add('active');
+    }
+
+    function closePopup(id) {
+      document.getElementById(id).classList.remove('active');
+    }
+
+    // Close popup when clicking outside the form
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('popup')) {
+        e.target.classList.remove('active');
+      }
+    });

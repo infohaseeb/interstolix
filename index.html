@@ -161,13 +161,69 @@
 
     <!-- CTA Buttons -->
     <div class="d-flex gap-2 ms-auto">
-      <a href="#contact" class="btn btn-outline-light btn-sm">Contact Us</a>
-      <a href="#quote" class="btn btn-primary btn-sm">Get a Quote</a>
+      <div class="d-flex gap-2 ms-auto">
+  <a href="javascript:void(0)" class="btn btn-outline-light btn-sm" onclick="openPopup('contactPopup')">Contact Us</a>
+  <a href="javascript:void(0)" class="btn btn-primary btn-sm" onclick="openPopup('quotePopup')">Get a Quote</a>
+</div>
+
     </div>
   </div>
 </nav>
 
-  
+  <div class="popup" id="contactPopup">
+    <div class="form-container">
+      <button class="close-btn" onclick="closePopup('contactPopup')">×</button>
+      <h2 class="text-center mb-4">Contact Us</h2>
+      <form>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <input type="text" class="form-control" placeholder="Your Name" required>
+          </div>
+          <div class="col-md-6">
+            <input type="email" class="form-control" placeholder="Your Email" required>
+          </div>
+          <div class="col-12">
+            <textarea class="form-control" placeholder="Your Message..." rows="3" required></textarea>
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary w-100">Send Message</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Get a Quote Popup -->
+  <div class="popup" id="quotePopup">
+    <div class="form-container">
+      <button class="close-btn" onclick="closePopup('quotePopup')">×</button>
+      <h2 class="text-center mb-4">Get a Quote</h2>
+      <form>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <input type="text" class="form-control" placeholder="Your Name" required>
+          </div>
+          <div class="col-md-6">
+            <input type="email" class="form-control" placeholder="Your Email" required>
+          </div>
+          <div class="col-md-6">
+            <select class="form-select" required>
+              <option value="">Select Service</option>
+              <option value="web">Web Development</option>
+              <option value="seo">SEO Optimization</option>
+              <option value="design">UI/UX Design</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <textarea class="form-control" placeholder="Project Details..." rows="3" required></textarea>
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary w-100">Request Quote</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 
 <!-- 🔹 Hero Section -->
 <section class="hero-section text-white py-5">
@@ -181,7 +237,7 @@
         <br class="d-none d-lg-block" />Stay tuned — something amazing is on the horizon.
       </p>
       <div class="d-flex gap-3 flex-wrap justify-content-center justify-content-lg-start">
-        <a href="#contact" class="btn btn-outline-light btn-lg px-4">Join the Waitlist</a>
+<a href="javascript:void(0)" class="btn btn-outline-light btn-lg px-4" onclick="openPopup('waitlistPopup')">Join the Waitlist</a>
         <a href="#quote" class="btn btn-primary btn-lg px-4">Get Early Access</a>
       </div>
     </div>
@@ -194,6 +250,33 @@
 
   </div>
 </section>
+
+
+
+<!-- Waitlist Popup -->
+<div class="popup" id="waitlistPopup">
+  <div class="form-container">
+    <button class="close-btn" onclick="closePopup('waitlistPopup')">×</button>
+    <h2 class="text-center mb-4">Join the Waitlist</h2>
+    <form>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <input type="text" class="form-control" placeholder="Your Name" required>
+        </div>
+        <div class="col-md-6">
+          <input type="email" class="form-control" placeholder="Your Email" required>
+        </div>
+        <div class="col-12">
+          <textarea class="form-control" placeholder="Anything else you'd like to share..." rows="3"></textarea>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary w-100">Join Waitlist</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
 <!-- 🔹 Stats Section -->
 <section class="stats-section text-white py-5">
   <div class="boxed text-center">
@@ -567,6 +650,11 @@
 
 
 <script src="script.js"></script>
+
+
+
+
+
 
 </body>
 </html>

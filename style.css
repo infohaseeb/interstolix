@@ -1,16 +1,99 @@
-body {
-  color: #fff;
-  font-family: 'Segoe UI', sans-serif;
-
-  background: linear-gradient(-45deg, #010A17, #0a0f1c, #0d1b2a, #010A17);
-  background-size: 400% 400%;
-
+/* === THEME VARIABLES === */
+:root {
+  --bg-color: #ffffff;           /* background in light mode */
+  --text-color: #000000;         /* black text in light mode */
+  --heading-color: #000000;      /* black headings in light mode */
+  --nav-bg: #f0f0f0;             /* navbar background light mode */
+  --link-color: #0078ff;         /* link color light mode */
+  --card-bg: #ffffff;
 }
 
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* === DARK MODE VARIABLES === */
+.dark-mode {
+  --bg-color: #0e0e0e;
+  --text-color: #f5f5f5;
+  --heading-color: #ffffff;
+  --nav-bg: #1a1a1a;
+  --link-color: #1e90ff;
+  --card-bg: #111111;
+}
+/* 🔹 Light mode hover color same rakho */
+:root .navbar-nav .nav-link:hover,
+:root .navbar-nav .nav-link:focus,
+:root .navbar-nav .nav-link.active,
+:root .dropdown-item:hover,
+:root .dropdown-item:focus,
+:root .dropdown-item.active {
+  color: var(--text-color) !important; /* same as normal text */
+}
+
+/* 🔹 Dark mode hover & active color = #00b8e6 */
+.dark-mode .navbar-nav .nav-link:hover,
+.dark-mode .navbar-nav .nav-link:focus,
+.dark-mode .navbar-nav .nav-link.active,
+.dark-mode .dropdown-item:hover,
+.dark-mode .dropdown-item:focus,
+.dark-mode .dropdown-item.active {
+  color: #00b8e6 !important; /* your signature blue */
+}
+
+
+/* === APPLY TO ELEMENTS === */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav, header, footer {
+  background-color: var(--nav-bg);
+  transition: background-color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading-color);
+  transition: color 0.3s ease;
+}
+
+.navbar h1, .navbar h2, .dropdown-header {
+  color: var(--heading-color) !important;
+}
+a {
+  color: var(--link-color);
+  transition: color 0.3s ease;
+}
+
+button, .btn {
+  color: var(--text-color);
+  background-color: var(--card-bg);
+  border: 1px solid var(--link-color);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* === THEME TOGGLE BUTTON === */
+.theme-toggle {
+    /* Yeh property button ko screen par hamesha fixed rakhti hai */
+    position: fixed;
+    
+    /* Bottom-Left position set karna */
+    bottom: 2rem;
+    left: 2rem;
+    top: auto; 
+    right: auto;
+    
+    /* Button ko dusre elements ke upar rakhne ke liye */
+    z-index: 1100;
+    
+    /* Visual Styling */
+    background: var(--nav-bg);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    color: var(--text-color);
 }
 
 .topbar {
@@ -56,26 +139,70 @@ body {
   padding: 0.7rem 1rem;
   border-radius: 0.75rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background-color: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   transition: top 0.3s ease-in-out;
 }
 
+.navbar {
+  background-color: var(--nav-bg) !important;
+  color: var(--text-color) !important;
+}
+/* === FORCE LOGO SWITCH === */
+
 .navbar-brand img {
   max-height: 58px;
-  background: transparent;
+  width: auto;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Light mode (default) */
+.logo-dark {
+  display: none !important;
+}
+
+.logo-light {
+  display: block !important;
+}
+
+/* Dark mode (when .dark-mode is on body) */
+body.dark-mode .logo-dark {
+  display: block !important;
+}
+
+body.dark-mode .logo-light {
+  display: none !important;
+}
+
+
+/* Common logo styling */
+.navbar-brand img {
+  height: 58px;              /* force same height */
+  width: auto;
+  object-fit: contain;
   display: block;
+  transition: transform 0.3s ease;
 }
 
 /* Main navbar links: Only underline (no background change) on hover/active */
 .navbar-nav .nav-link {
-  color: #fff !important;
+
   font-weight: 500;
   position: relative;
   background: transparent !important;
   transition: color 0.2s;
 }
+
+/* Slight upscale for light-mode logo if it looks smaller */
+.logo-light {
+  transform: scale(1.15);   /* adjust 1.1–1.2 if needed */
+  transform-origin: center;
+}
+
+.navbar-nav .nav-link {
+  color: var(--text-color) !important;
+}
+
 
 .navbar-nav .nav-link::after {
   content: '';
@@ -84,7 +211,7 @@ body {
   bottom: 0;
   width: 0;
   height: 1px; /* Very thin underline */
-  background-color: #00b8e6;
+  background-color: #1191b1;
   transition: width 0.3s;
 }
 
@@ -95,7 +222,7 @@ body {
 }
 
 /* Remove highlight on hover/focus/active for main nav links */
-.navbar-nav .nav-link:hover,
+navbar-nav .nav-link:hover,
 .navbar-nav .nav-link:focus,
 .navbar-nav .nav-link.active {
   color: #fff !important;
@@ -146,13 +273,20 @@ body {
 /* Dropdown items: underline only, no highlight */
 .dropdown-item {
   position: relative;
-  color: #fff;
   font-weight: 500;
   
   padding: 0.5rem 1.5rem;
   background: transparent !important;
   transition: color 0.2s;
 }
+
+.dropdown-item {
+  color: var(--text-color) !important;
+}
+.dropdown-item:hover {
+  color: var(--link-color) !important;
+}
+
 
 .dropdown-item::after {
   content: '';
@@ -185,9 +319,7 @@ body {
 }
 
 /* Dropdown-toggle ke liye bhi underline (hover pe) */
-.navbar-nav .dropdown:hover > .nav-link {
-  color: #fff !important;
-}
+
 
 /* Common Button Style */
 .btn {
@@ -203,15 +335,30 @@ body {
 
 /* Outline Light Button */
 .btn-outline-light {
-  border: 2px solid #ffffff;
-  color: #ffffff;
+    border: 2px solid #00b8e6 !important;    /* same blue border */
+
+  color: #000000;
   background-color: transparent;
 }
 
 .btn-outline-light:hover {
-  background-color: #ffffff;
+  background-color: #00b8e6;
   color: #000000;
   box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+/* === Dark Mode: Outline Light Button === */
+.dark-mode .btn-outline-light {
+  border: 2px solid #00b8e6 !important;    /* same blue border */
+  color: #00b8e6 !important;               /* blue text */
+  background-color: transparent !important;
+  transition: all 0.3s ease;
+}
+
+.dark-mode .btn-outline-light:hover {
+  background-color: #00b8e6 !important;    /* blue fill on hover */
+  color: #ffffff !important;               /* white text on hover for contrast */
+  box-shadow: 0 4px 12px rgba(0, 184, 230, 0.3);
 }
 
 /* Primary Button with Gradient */
@@ -259,7 +406,7 @@ body {
   right: 0;
   width: 100%;
   margin: 0;
-  border-radius: 0; /* rounding hatao */
+  border-radius: 0.5rem; /* rounding hatao */
   padding: 2rem 3rem;
 }
 
@@ -279,7 +426,6 @@ body {
   padding: 2rem 3rem;
 
   /* 🔹 Gradient solid background */
-  background: linear-gradient(-45deg, #010A17, #0a0f1c, #0d1b2a, #010A17);
 
   /* 🔹 Blur on top */
   backdrop-filter: blur(15px);
@@ -289,31 +435,43 @@ body {
   z-index: 2000;
 }
 
-/* 🔹 Mobile view fix */
+.navbar .dropdown-menu {
+  background-color: var(--nav-bg) !important;
+  color: var(--text-color);
+}
+
+
+/* 🔹 Mobile View: Match Desktop Gradient & Theme */
 @media (max-width: 991px) {
   .navbar .dropdown-menu {
-    position: static !important;   /* collapse ke andar flow ke sath */
+    position: static !important;
     width: 100% !important;
     padding: 1rem 1rem;
     border: none;
-    border-radius: 0;
-    background: #010A17 !important; /* solid bg rakho taake clear dikhe */
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    box-shadow: none !important;
+    border-radius: 0.5rem !important;
+    
+    /* ✅ Match desktop gradient & color scheme */
+    color: var(--text-color) !important;
 
-    max-height: 60vh;      /* dropdown mobile me limit */
-    overflow-y: auto;      /* agar zyada items hon to scroll ho */
+    /* ✅ Add subtle transparency for modern look */
+    background-blend-mode: overlay;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+
+    /* ✅ Cleanup */
+    box-shadow: none !important;
+    max-height: 65vh;
+    overflow-y: auto;
   }
 
-  /* Mega menu grid ko stack kar do */
+  /* Stack mega-menu columns */
   .navbar .dropdown-menu .row {
     display: flex;
     flex-direction: column !important;
     margin: 0 !important;
   }
 
-  /* Columns 100% width + spacing */
+  /* Columns full-width */
   .navbar .dropdown-menu .col-lg-2,
   .navbar .dropdown-menu .col-lg-3,
   .navbar .dropdown-menu .col-md-4,
@@ -323,11 +481,11 @@ body {
     padding: 0 !important;
   }
 
-  /* Headers aur items align left */
+  /* Headers and links styling */
   .navbar .dropdown-menu .dropdown-header {
     font-size: 0.95rem;
     font-weight: 600;
-    color: #fff;
+    color: #00b8e6 !important;
     margin: 0.5rem 0;
     text-align: left;
   }
@@ -335,8 +493,49 @@ body {
   .navbar .dropdown-menu .dropdown-item {
     padding: 0.4rem 0;
     font-size: 0.9rem;
-    color: #ddd;
+    color: #ddd !important;
     text-align: left;
+  }
+
+  .navbar .dropdown-menu .dropdown-item:hover {
+    color: #00b8e6 !important;
+  }
+}
+
+
+/* 🔹 Light & Dark Mode Dropdown Styling (Mobile) */
+@media (max-width: 991px) {
+  /* === LIGHT MODE === */
+  :root .navbar .dropdown-menu .dropdown-header {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #000000 !important; /* black header text in light mode */
+    margin: 0.5rem 0;
+    text-align: left;
+  }
+
+  :root .navbar .dropdown-menu .dropdown-item {
+    padding: 0.4rem 0;
+    font-size: 0.9rem;
+    color: #333333 !important; /* dark gray text in light mode */
+    text-align: left;
+  }
+
+  :root .navbar .dropdown-menu .dropdown-item:hover {
+    color: #00b8e6 !important; /* your signature blue */
+  }
+
+  /* === DARK MODE === */
+  .dark-mode .navbar .dropdown-menu .dropdown-header {
+    color: #00b8e6 !important; /* blue accent */
+  }
+
+  .dark-mode .navbar .dropdown-menu .dropdown-item {
+    color: #ddd !important;
+  }
+
+  .dark-mode .navbar .dropdown-menu .dropdown-item:hover {
+    color: #00b8e6 !important;
   }
 }
 
@@ -347,61 +546,6 @@ body {
 
 
 
-
-
-
-
-
-/* 🔹 Mobile view fix */
-@media (max-width: 991px) {
-  .navbar .dropdown-menu {
-    position: static !important;   /* collapse ke andar flow ke sath */
-    width: 100% !important;
-    padding: 1rem 1rem;
-    border: none;
-    border-radius: 0;
-    background: linear-gradient(-45deg, #010A17, #0a0f1c, #0d1b2a, #010A17) !important; 
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    box-shadow: none !important;
-
-    max-height: 60vh;      /* dropdown mobile me limit */
-    overflow-y: auto;      /* agar zyada items hon to scroll ho */
-  }
-
-  /* Mega menu grid ko stack kar do */
-  .navbar .dropdown-menu .row {
-    display: flex;
-    flex-direction: column !important;
-    margin: 0 !important;
-  }
-
-  /* Columns 100% width + spacing */
-  .navbar .dropdown-menu .col-lg-2,
-  .navbar .dropdown-menu .col-lg-3,
-  .navbar .dropdown-menu .col-md-4,
-  .navbar .dropdown-menu .col-md-6 {
-    width: 100% !important;
-    margin-bottom: 1rem;
-    padding: 0 !important;
-  }
-
-  /* Headers aur items align left */
-  .navbar .dropdown-menu .dropdown-header {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #fff;
-    margin: 0.5rem 0;
-    text-align: left;
-  }
-
-  .navbar .dropdown-menu .dropdown-item {
-    padding: 0.4rem 0;
-    font-size: 0.9rem;
-    color: #ddd;
-    text-align: left;
-  }
-}
 
 
 /* Hero Section */
@@ -424,7 +568,7 @@ body {
 
 .hero-section p {
   max-width: 600px;
-  color: #bbb;
+  color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity)) !important;
 }
 
 /* Hero Image Glow */
@@ -790,58 +934,55 @@ body {
 
 
 
-
+/* === THEME-AWARE FAQ SECTION FIX === */
 .faq-section {
-  background: none;
-  color: #fff;
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .faq-section h2 {
-  color: #00b8e6 ;
+  color: var(--heading-color) !important;
 }
 
+/* Accordion cards */
 .accordion-item {
-  background: transparent;
+  background-color: var(--card-bg) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .accordion-item {
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 0.5rem;
-  overflow: hidden;
 }
 
+/* Accordion buttons */
 .accordion-button {
-  background-color: transparent;
-  color: #fff;
+  background-color: transparent !important;
+  color: var(--text-color) !important;
+  border: none !important;
+  box-shadow: none !important;
   font-weight: 500;
-  padding: 1rem 1.25rem;
-  border: none;
-  box-shadow: none;
   transition: background-color 0.3s ease, color 0.3s ease;
-  cursor: pointer;
 }
 
-.accordion-button:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-  color: #00b8e6 ;
-}
-
+.accordion-button:hover,
 .accordion-button:not(.collapsed) {
-  background-color: rgba(255, 255, 255, 0.05);
-  color: #00b8e6 ;
+  color: #00b8e6 !important;                      /* your blue color */
+  background-color: rgba(0, 0, 0, 0.04) !important; /* subtle gray background */
+  box-shadow: none !important;                    /* optional: removes Bootstrap glow */
+  border-color: #00b8e6 !important;               /* blue border on active */
 }
 
-.accordion-button::after {
-  filter: brightness(0) invert(1);
-  transition: filter 0.3s ease;
+
+.dark-mode .accordion-button:hover,
+.dark-mode .accordion-button:not(.collapsed) {
+  background-color: rgba(255, 255, 255, 0.05) !important;
 }
 
-.accordion-button:hover::after {
-  filter: brightness(0) saturate(100%) sepia(100%) hue-rotate(160deg);
-}
-
+/* Accordion body */
 .accordion-body {
-  background-color: rgba(255, 255, 255, 0.02);
-  color: #bbb;
-  padding: 1rem 1.25rem;
-  font-size: 0.95rem;
+  background-color: var(--card-bg) !important;
+  color: var(--text-color) !important;
 }
 
 
@@ -868,32 +1009,52 @@ body {
 
 .scroll-to-top {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: none;
-  background: linear-gradient(45deg, #00b8e6 );
-  color: #000;
+  bottom: 25px;
+  right: 25px;
+  width: 50px;
+  height: 50px;
+  background-color: #00b8e6; /* Bootstrap Primary Blue */
+  color: white;
   border: none;
-  padding: 10px 12px;
   border-radius: 50%;
-  font-size: 1.25rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  z-index: 999;
-  transition: opacity 0.3s ease;
+  display: none; /* Initially hidden, JavaScript will show it */
+  z-index: 1050;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s, background-color 0.3s, transform 0.3s;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0;
+}
+
+.scroll-to-top i {
+  /* Center the icon */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .scroll-to-top:hover {
-  opacity: 0.8;
+  background-color: #00b8e6;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
-
 
 
 .navbar-toggler {
   border-color: rgba(255, 255, 255, 0.5); /* Optional: white border */
 }
 
+/* === FIX: Navbar Toggler Icon Color for Light & Dark Modes === */
+
+/* Light mode (default): black icon */
 .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Dark mode: white icon */
+.dark-mode .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
@@ -984,3 +1145,112 @@ html, body {
       from { opacity: 0; transform: scale(0.8); }
       to { opacity: 1; transform: scale(1); }
     }
+
+
+
+    /* === LIGHT MODE HEADINGS FIX (EXCLUDING NAVBAR) === */
+:root h1,
+:root h2,
+:root h3,
+:root h4,
+:root h5,
+:root h6 {
+  color: #000000 !important; /* pure black in light mode */
+}
+
+/* === DARK MODE HEADINGS === */
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6 {
+  color: #ffffff !important; /* white in dark mode */
+}
+
+/* Navbar headings should follow navbar theme colors */
+.navbar h1,
+.navbar h2,
+.navbar h3,
+.navbar h4,
+.navbar h5,
+.navbar h6,
+.dropdown-header {
+  color:#00b8e6  !important;
+}
+
+
+/* === LOGO SWITCH BASED ON THEME === */
+/* === LOGO SWITCH BASED ON THEME === */
+
+/* Default (light mode): show light logo, hide dark one */
+.logo-dark {
+  display: none;
+}
+
+.logo-light {
+  display: block;
+}
+
+/* Dark mode active: show dark logo, hide light one */
+.dark-mode .logo-dark {
+  display: block;
+}
+
+.dark-mode .logo-light {
+  display: none;
+}
+
+/* Smooth fade + responsive sizing */
+.logo-dark,
+.logo-light {
+  transition: opacity 0.3s ease-in-out;
+  max-height: 58px;
+  width: auto;
+}
+
+
+/* === FOOTER LOGO THEME SWITCH === */
+
+/* Default: Light mode */
+.footer-logo-dark {
+  display: none;
+}
+
+.footer-logo-light {
+  display: inline-block;
+}
+
+/* Dark mode active */
+.dark-mode .footer-logo-dark {
+  display: inline-block;
+}
+
+.dark-mode .footer-logo-light {
+  display: none;
+}
+
+/* Shared styles for both logos */
+.footer-logo-dark,
+.footer-logo-light {
+  max-height: 55px;
+  width: auto;
+  object-fit: contain;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Optional: smooth hover effect */
+.footer-logo:hover {
+  transform: scale(1.05);
+}
+
+/* Optional: light logo adjustment if it looks smaller */
+.footer-logo-light {
+  transform: scale(1.15);
+  transform-origin: center;
+}
+
+
+
+
+

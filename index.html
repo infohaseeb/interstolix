@@ -175,60 +175,9 @@
   </div>
 </nav>
 
-  <div class="popup" id="contactPopup">
-    <div class="form-container">
-      <button class="close-btn" onclick="closePopup('contactPopup')">×</button>
-      <h2 class="text-center mb-4">Contact Us</h2>
-      <form>
-        <div class="row g-3">
-          <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="Your Name" required>
-          </div>
-          <div class="col-md-6">
-            <input type="email" class="form-control" placeholder="Your Email" required>
-          </div>
-          <div class="col-12">
-            <textarea class="form-control" placeholder="Your Message..." rows="3" required></textarea>
-          </div>
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary w-100">Send Message</button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
 
-  <!-- Get a Quote Popup -->
-  <div class="popup" id="quotePopup">
-    <div class="form-container">
-      <button class="close-btn" onclick="closePopup('quotePopup')">×</button>
-      <h2 class="text-center mb-4">Get a Quote</h2>
-      <form>
-        <div class="row g-3">
-          <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="Your Name" required>
-          </div>
-          <div class="col-md-6">
-            <input type="email" class="form-control" placeholder="Your Email" required>
-          </div>
-          <div class="col-md-6">
-            <select class="form-select" required>
-              <option value="">Select Service</option>
-              <option value="web">Web Development</option>
-              <option value="seo">SEO Optimization</option>
-              <option value="design">UI/UX Design</option>
-            </select>
-          </div>
-          <div class="col-md-6">
-            <textarea class="form-control" placeholder="Project Details..." rows="3" required></textarea>
-          </div>
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary w-100">Request Quote</button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
+
+ 
 
 <!-- 🔹 Hero Section -->
 <section class="hero-section text-white py-5">
@@ -258,29 +207,7 @@
 
 
 
-<!-- Waitlist Popup -->
-<div class="popup" id="waitlistPopup">
-  <div class="form-container">
-    <button class="close-btn" onclick="closePopup('waitlistPopup')">×</button>
-    <h2 class="text-center mb-4">Join the Waitlist</h2>
-    <form>
-      <div class="row g-3">
-        <div class="col-md-6">
-          <input type="text" class="form-control" placeholder="Your Name" required>
-        </div>
-        <div class="col-md-6">
-          <input type="email" class="form-control" placeholder="Your Email" required>
-        </div>
-        <div class="col-12">
-          <textarea class="form-control" placeholder="Anything else you'd like to share..." rows="3"></textarea>
-        </div>
-        <div class="col-12">
-          <button type="submit" class="btn btn-primary w-100">Join Waitlist</button>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
+
 
 <!-- 🔹 Stats Section -->
 <section class="stats-section text-white py-5">
@@ -453,19 +380,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 <section class="testimonials-section text-white py-5">
   <div class="boxed text-center">
     <h2 class="display-5 fw-bold mb-4">What Our Clients Say</h2>
@@ -529,11 +443,6 @@
     </div>
   </div>
 </section>
-
-
-
-
-
 
 
 
@@ -625,6 +534,16 @@
    <hr class="border-secondary mt-4">
 
 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 gap-2">
+
+
+
+<button id="theme-toggle" class="theme-toggle-footer">
+  🌙 <span class="theme-label">Dark Mode On</span>
+</button>
+
+
+
+
   <p id="user-country" class="mb-0 text-secondary small">Language: Detecting...</p>
   <div class="text-secondary small text-center text-md-end">
     &copy; Interstolix LLC 2025. All rights reserved.
@@ -639,9 +558,7 @@
 
 
 <!-- 🔹 Scroll Progress Bar -->
-<button id="theme-toggle" class="theme-toggle">
-  🌙
-</button>
+
 <div id="scroll-progress-bar"></div>
 <button class="scroll-to-top" id="scrollToTopBtn">
   <i class="bi bi-chevron-up"></i>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services | Interstolix</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <!-- Your site CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* === SERVICES SECTION === */
+    .services-section {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      padding: 5rem 0;
+    }
+
+    .service-card {
+      background-color: var(--card-bg);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 1rem;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      height: 100%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .dark-mode .service-card {
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 20px rgba(0, 184, 230, 0.15);
+    }
+
+    .service-card i {
+      font-size: 2rem;
+      color: #00b8e6;
+      margin-bottom: 15px;
+    }
+
+    .service-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: var(--heading-color);
+    }
+
+    .service-category {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--heading-color);
+    }
+  </style>
+</head>
+<body>
+  <!-- === Topbar === -->
+  <div class="topbar">
+    <div class="boxed py-1 border-bottom border-secondary small">
+      <div class="d-flex justify-content-between align-items-center">
+        <div><i class="bi bi-telephone me-1"></i> +92 313 4490790</div>
+        <div><i class="bi bi-envelope me-1"></i> support@interstolix.com</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- === Navbar === -->
+  <nav class="navbar navbar-expand-lg mt-3 boxed">
+    <div class="container-fluid d-flex align-items-center">
+      <a class="navbar-brand" href="index.html">
+        <img src="logointer1.png" alt="Interstolix Logo Dark" class="logo-dark">
+        <img src="translight1.png" alt="Interstolix Logo Light" class="logo-light">
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-center" id="mainNav">
+        <ul class="navbar-nav mb-2 mb-lg-0 d-flex gap-3">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+          <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact us</a></li>
+        </ul>
+      </div>
+
+      <div class="d-flex gap-2 ms-auto">
+        <a href="contact.html" class="btn btn-outline-light btn-sm">Contact us </a>
+        <a href="#" class="btn btn-primary btn-sm">Get a Quote</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- === Hero === -->
+  <section class="hero-section text-center">
+    <div class="boxed">
+      <h1 class="fw-bold mb-3">Our Services</h1>
+   <div style="display: flex; justify-content: center; align-items: center;">
+  <p class="lead text-muted">
+    Empowering businesses with cloud, enterprise, and digital transformation solutions.
+  </p>
+</div>
+    </div>
+  </section>
+
+  <!-- === Services Section === -->
+  <section class="services-section">
+    <div class="boxed">
+      
+      <!-- CLOUD SOLUTIONS -->
+      <h3 class="service-category text-center mb-4">Cloud Solutions</h3>
+      <div class="row g-4 mb-5">
+        <div class="col-md-3 col-sm-6"><div class="service-card"><i class="bi bi-cloud"></i><h5 class="service-title">Cloud Development</h5></div></div>
+        <div class="col-md-3 col-sm-6"><div class="service-card"><i class="bi bi-amazon"></i><h5 class="service-title">AWS Solutions</h5></div></div>
+        <div class="col-md-3 col-sm-6"><div class="service-card"><i class="bi bi-microsoft"></i><h5 class="service-title">Microsoft Azure</h5></div></div>
+        <div class="col-md-3 col-sm-6"><div class="service-card"><i class="bi bi-google"></i><h5 class="service-title">Google Cloud</h5></div></div>
+        <div class="col-md-3 col-sm-6"><div class="service-card"><i class="bi bi-hdd-network"></i><h5 class="service-title">Cloud Hosting</h5></div></div>
+        <div class="col-md-3 col-sm-6"><div class="service-card"><i class="bi bi-upload"></i><h5 class="service-title">Cloud Migration</h5></div></div>
+      </div>
+
+      <!-- ENTERPRISE SOLUTIONS -->
+      <h3 class="service-category text-center mb-4">Enterprise Solutions</h3>
+      <div class="row g-4 mb-5">
+        <div class="col-md-3 col-sm-6"><div class="service-card"><i class="bi bi-building"></i><h5 class="service-title">Enterprise Cloud</h5></div></div>
+        <div class="col-md-3 col-sm-6"><div class="service-card"><i class="bi bi-gear"></i><h5 class="service-title">ERP Systems</h5></div></div>
+        <div class="col-md-3 col-sm-6"><div class="service-card"><i class="bi bi-people"></i><h5 class="service-title">CRM Solutions</h5></div></div>
+        <div class="col-md-3 col-sm-6"><div class="service-card"><i class="bi bi-server"></i><h5 class="service-title">IT Infrastructure</h5></div></div>
+        <div class="col-md-3 col-sm-6"><div class="service-card"><i class="bi bi-shield-lock"></i><h5 class="service-title">Cybersecurity</h5></div></div>
+      </div>
+
+      <!-- BUSINESS SOLUTIONS -->
+      <h3 class="service-category text-center mb-4">Business Solutions</h3>
+      <div class="row g-4 mb-5">
+        <div class="col-md-3 col-sm-6"><div class="service-card"><i class="bi bi-cpu"></i><h5 class="service-title">Automation</h5></div></div>
+        <div class="col-md-3 col-sm-6"><div class="service-card"><i class="bi bi-bar-chart"></i><h5 class="service-title">Data Analytics</h5></div></div>
+        <div class="col-md-3 col-sm-6"><div class="service-card"><i class="bi bi-diagram-3"></i><h5 class="service-title">Workflow Optimization</h5></div></div>
+        <div class="col-md-3 col-sm-6"><div class="service-card"><i class="bi bi-chat-dots"></i><h5 class="service-title">Collaboration Tools</h5></div></div>
+      </div>
+
+      <!-- CUSTOM APPLICATIONS -->
+      <h3 class="service-category text-center mb-4">Custom Applications</h3>
+      <div class="row g-4 mb-5">
+        <div class="col-md-3 col-sm-6"><div class="service-card"><i class="bi bi-code-slash"></i><h5 class="service-title">Web Development</h5></div></div>
+        <div class="col-md-3 col-sm-6"><div class="service-card"><i class="bi bi-cart-check"></i><h5 class="service-title">E-Commerce</h5></div></div>
+        <div class="col-md-3 col-sm-6"><div class="service-card"><i class="bi bi-phone"></i><h5 class="service-title">Mobile Apps</h5></div></div>
+        <div class="col-md-3 col-sm-6"><div class="service-card"><i class="bi bi-palette"></i><h5 class="service-title">UI/UX Design</h5></div></div>
+        <div class="col-md-3 col-sm-6"><div class="service-card"><i class="bi bi-window"></i><h5 class="service-title">CMS Development</h5></div></div>
+      </div>
+
+      <!-- DIGITAL MARKETING -->
+      <h3 class="service-category text-center mb-4">Digital Marketing</h3>
+      <div class="row g-4">
+        <div class="col-md-3 col-sm-6"><div class="service-card"><i class="bi bi-graph-up"></i><h5 class="service-title">SEO</h5></div></div>
+        <div class="col-md-3 col-sm-6"><div class="service-card"><i class="bi bi-share"></i><h5 class="service-title">Social Media Marketing</h5></div></div>
+        <div class="col-md-3 col-sm-6"><div class="service-card"><i class="bi bi-bullseye"></i><h5 class="service-title">Google Ads</h5></div></div>
+        <div class="col-md-3 col-sm-6"><div class="service-card"><i class="bi bi-pencil-square"></i><h5 class="service-title">Content Marketing</h5></div></div>
+        <div class="col-md-3 col-sm-6"><div class="service-card"><i class="bi bi-envelope-open"></i><h5 class="service-title">Email Marketing</h5></div></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- === Footer === -->
+<!-- 🔹 Footer (Same as Index) -->
+  <footer class="site-footer footer text-white pt-5 pb-4">
+    <div class="boxed px-3">
+      <div class="row gy-4 text-center text-md-start">
+        <div class="col-12 col-md-4 text-md-start text-center">
+          <img src="logointer1.png" alt="Interstolix Logo Dark" class="footer-logo footer-logo-dark mb-3">
+          <img src="translight1.png" alt="Interstolix Logo Light" class="footer-logo footer-logo-light mb-3">
+          <p class="text-secondary small">
+            Interstolix engineers modern cloud, AI, and infrastructure solutions tailored for businesses across the globe.
+          </p>
+        </div>
+
+        <div class="col-6 col-md-2">
+          <h6 class="fw-bold mb-3">Company</h6>
+          <ul class="list-unstyled text-secondary small">
+            <li><a href="about.html" class="footer-link">About Interstolix</a></li>
+            <li><a href="#" class="footer-link">Careers</a></li>
+            <li><a href="#" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <h6 class="fw-bold mb-3">Privacy & Legal</h6>
+          <ul class="list-unstyled text-secondary small">
+            <li><a href="#" class="footer-link">Your Privacy Choices</a></li>
+            <li><a href="#" class="footer-link">Consumer Health Privacy</a></li>
+            <li><a href="#" class="footer-link">Terms of Use</a></li>
+            <li><a href="#" class="footer-link">Trademarks</a></li>
+            <li><a href="#" class="footer-link">About Our Ads</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-3">
+          <h6 class="fw-bold mb-3">Support</h6>
+          <ul class="list-unstyled text-secondary small">
+            <li>Email: support@interstolix.com</li>
+            <li>Phone: +92 300 1234567</li>
+          </ul>
+          <div class="mt-3 d-flex justify-content-center justify-content-md-start gap-3">
+            <a href="#" class="text-secondary"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-secondary"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="text-secondary"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <hr class="border-secondary mt-4">
+
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 gap-2">
+        <button id="theme-toggle" class="theme-toggle-footer">🌙 <span class="theme-label">Dark Mode On</span></button>
+        <p id="user-country" class="mb-0 text-secondary small">Language: Detecting...</p>
+        <div class="text-secondary small text-center text-md-end">
+          &copy; Interstolix LLC 2025. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- === Scripts === -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

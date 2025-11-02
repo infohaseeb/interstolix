@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Interstolix</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <!-- Your site CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* === CONTACT PAGE SPECIFIC STYLING === */
+    .contact-section {
+      padding: 5rem 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .contact-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--heading-color);
+    }
+
+    .contact-card {
+      background-color: var(--card-bg);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      border: 1px solid rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .dark-mode .contact-card {
+      border-color: rgba(255,255,255,0.08);
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,184,230,0.15);
+    }
+
+    .form-control {
+      border-radius: 0.75rem;
+      padding-left: 2.5rem;
+    }
+    /* Input fields normal */
+.form-control {
+  background-color: var(--card-bg); /* dark/light mode aware */
+  color: var(--text-color);
+  border: 1px solid #ccc;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+/* Input fields placeholder */
+.form-control::placeholder {
+  color: #999;
+}
+
+.dark-mode .form-control::placeholder {
+  color: #ffffff;
+}
+
+/* Input fields focus */
+.form-control:focus {
+  background-color: var(--card-bg); /* dark/light mode aware */
+  color: var(--text-color);
+  border-color: #00b8e6; /* highlight color */
+  outline: none; /* remove default blue outline */
+}
+
+
+    .form-icon {
+      position: absolute;
+      top: 50%;
+      left: 15px;
+      transform: translateY(-50%);
+      color: #00b8e6;
+    }
+
+    .contact-btn {
+      border-radius: 2rem;
+      padding: 0.75rem 2rem;
+      background-color: #00b8e6;
+      color: #fff;
+      border: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .contact-btn:hover {
+      background-color: #148cb8;
+    }
+
+    /* Map Styling */
+    .contact-map iframe {
+      width: 100%;
+      height: 350px;
+      border-radius: 1rem;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- === Topbar === -->
+  <div class="topbar">
+    <div class="boxed py-1 border-bottom border-secondary small">
+      <div class="d-flex justify-content-between align-items-center">
+        <div><i class="bi bi-telephone me-1"></i> +92 313 4490790</div>
+        <div><i class="bi bi-envelope me-1"></i> support@interstolix.com</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- === Navbar === -->
+  <nav class="navbar navbar-expand-lg mt-3 boxed">
+    <div class="container-fluid d-flex align-items-center">
+      <a class="navbar-brand" href="index.html">
+        <img src="logointer1.png" alt="Interstolix Logo Dark" class="logo-dark">
+        <img src="translight1.png" alt="Interstolix Logo Light" class="logo-light">
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-center" id="mainNav">
+        <ul class="navbar-nav mb-2 mb-lg-0 d-flex gap-3">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="mission-values.html">Mission & Values</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="d-flex gap-2 ms-auto">
+        <a href="contact.html" class="btn btn-outline-light btn-sm">Contact us </a>
+        <a href="#" class="btn btn-primary btn-sm">Get a Quote</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- === Contact Section === -->
+  <section class="contact-section">
+    <div class="boxed">
+      <h2>Contact Us</h2>
+      <div class="row g-5 justify-content-center">
+        <!-- Contact Form -->
+        <div class="col-lg-6 col-md-8">
+          <div class="contact-card position-relative">
+            <form>
+              <div class="mb-3 position-relative">
+                <i class="bi bi-person-fill form-icon"></i>
+                <input type="text" class="form-control" placeholder="Your Name" required>
+              </div>
+              <div class="mb-3 position-relative">
+                <i class="bi bi-envelope-fill form-icon"></i>
+                <input type="email" class="form-control" placeholder="Email Address" required>
+              </div>
+              <div class="mb-3 position-relative">
+                <i class="bi bi-telephone-fill form-icon"></i>
+                <input type="tel" class="form-control" placeholder="Phone Number" required>
+              </div>
+              <div class="mb-3 position-relative">
+                <i class="bi bi-chat-left-text-fill form-icon"></i>
+                <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+              </div>
+              <div class="text-center">
+                <button type="submit" class="contact-btn">Send Message</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Contact Info + Map -->
+        <div class="col-lg-6 col-md-8">
+          <div class="contact-card">
+            <h5 class="mb-3">Get in Touch</h5>
+            <p><i class="bi bi-geo-alt-fill me-2"></i>123 Main Street, Islamabad, Pakistan</p>
+            <p><i class="bi bi-telephone-fill me-2"></i>+92 313 4490790</p>
+            <p><i class="bi bi-envelope-fill me-2"></i>support@interstolix.com</p>
+
+            <div class="contact-map mt-4">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3311.912345678!2d73.04788231521624!3d33.68442298073152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfbf0a2b0f1f9f%3A0x6f96f61b7d67c3a3!2sIslamabad!5e0!3m2!1sen!2s!4v1706674328942!5m2!1sen!2s" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- === Footer === -->
+<!-- 🔹 Footer (Same as Index) -->
+  <footer class="site-footer footer text-white pt-5 pb-4">
+    <div class="boxed px-3">
+      <div class="row gy-4 text-center text-md-start">
+        <div class="col-12 col-md-4 text-md-start text-center">
+          <img src="logointer1.png" alt="Interstolix Logo Dark" class="footer-logo footer-logo-dark mb-3">
+          <img src="translight1.png" alt="Interstolix Logo Light" class="footer-logo footer-logo-light mb-3">
+          <p class="text-secondary small">
+            Interstolix engineers modern cloud, AI, and infrastructure solutions tailored for businesses across the globe.
+          </p>
+        </div>
+
+        <div class="col-6 col-md-2">
+          <h6 class="fw-bold mb-3">Company</h6>
+          <ul class="list-unstyled text-secondary small">
+            <li><a href="about.html" class="footer-link">About Interstolix</a></li>
+            <li><a href="#" class="footer-link">Careers</a></li>
+            <li><a href="#" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <h6 class="fw-bold mb-3">Privacy & Legal</h6>
+          <ul class="list-unstyled text-secondary small">
+            <li><a href="#" class="footer-link">Your Privacy Choices</a></li>
+            <li><a href="#" class="footer-link">Consumer Health Privacy</a></li>
+            <li><a href="#" class="footer-link">Terms of Use</a></li>
+            <li><a href="#" class="footer-link">Trademarks</a></li>
+            <li><a href="#" class="footer-link">About Our Ads</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-3">
+          <h6 class="fw-bold mb-3">Support</h6>
+          <ul class="list-unstyled text-secondary small">
+            <li>Email: support@interstolix.com</li>
+            <li>Phone: +92 300 1234567</li>
+          </ul>
+          <div class="mt-3 d-flex justify-content-center justify-content-md-start gap-3">
+            <a href="#" class="text-secondary"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-secondary"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="text-secondary"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <hr class="border-secondary mt-4">
+
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 gap-2">
+        <button id="theme-toggle" class="theme-toggle-footer">🌙 <span class="theme-label">Dark Mode On</span></button>
+        <p id="user-country" class="mb-0 text-secondary small">Language: Detecting...</p>
+        <div class="text-secondary small text-center text-md-end">
+          &copy; Interstolix LLC 2025. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,2 +1,0 @@
-# interstolix
-Cloud Infrastructure

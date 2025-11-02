@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Home Page -->
+  <url>
+    <loc>https://www.interstolix.com/index.html</loc>
+    <lastmod>2025-11-02</lastmod>
+    <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- About Page -->
+  <url>
+    <loc>https://www.interstolix.com/about.html</loc>
+    <lastmod>2025-11-02</lastmod>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Mission & Values Page -->
+  <url>
+    <loc>https://www.interstolix.com/mission-values.html</loc>
+    <lastmod>2025-11-02</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Services Page -->
+  <url>
+    <loc>https://www.interstolix.com/services.html</loc>
+    <lastmod>2025-11-02</lastmod>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Team Page -->
+  <url>
+    <loc>https://www.interstolix.com/team.html</loc>
+    <lastmod>2025-11-02</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Careers Page -->
+  <url>
+    <loc>https://www.interstolix.com/Careers.html</loc>
+    <lastmod>2025-11-02</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Contact Page -->
+  <url>
+    <loc>https://www.interstolix.com/contact.html</loc>
+    <lastmod>2025-11-02</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+</urlset>

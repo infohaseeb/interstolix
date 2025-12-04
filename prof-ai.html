@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParofAi | The Career Navigator</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- 1. THEME ENGINE (Forest Green & High Contrast) --- */
+        :root {
+            /* Brand Colors */
+            --primary: #10b981;       /* Emerald Green */
+            --primary-glow: rgba(16, 185, 129, 0.4);
+            
+            /* Light Mode Variables */
+            --bg-body: #ffffff;
+            --text-main: #020617;     /* Deep Black */
+            --text-muted: #475569;    /* Dark Grey */
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --nav-bg: rgba(255, 255, 255, 0.9);
+            --gradient-overlay: radial-gradient(circle at 50% -10%, rgba(16, 185, 129, 0.15), transparent 70%);
+        }
+
+        [data-theme="dark"] {
+            /* Dark Mode Variables */
+            --bg-body: #020617;       /* Deep Forest Charcoal */
+            --text-main: #ffffff;     /* Pure White */
+            --text-muted: #cbd5e1;    /* Light Grey (High Visibility) */
+            --card-bg: #0f172a;       /* Dark Blue/Grey */
+            --border: #1e293b;
+            --nav-bg: rgba(2, 6, 23, 0.85);
+            --gradient-overlay: radial-gradient(circle at 50% -10%, rgba(16, 185, 129, 0.25), transparent 80%);
+        }
+
+        /* --- 2. GLOBAL STYLES --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            background-image: var(--gradient-overlay);
+            background-attachment: fixed;
+            color: var(--text-main);
+            transition: 0.3s;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-main) !important;
+        }
+        
+        p, li, div, small, span {
+            color: var(--text-main);
+        }
+        
+        /* Specific override for muted text to ensure visibility */
+        .text-muted {
+            color: var(--text-muted) !important;
+        }
+
+        /* --- 3. FLOATING NAVBAR --- */
+        .navbar-floating {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 95%;
+            max-width: 900px;
+            background: var(--nav-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            padding: 10px 25px;
+            z-index: 1000;
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+
+        .nav-link {
+            color: var(--text-main) !important;
+            opacity: 0.8;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .nav-link:hover {
+            color: var(--primary) !important;
+            opacity: 1;
+        }
+
+        /* --- 4. HERO SECTION --- */
+        .hero {
+            padding-top: 180px;
+            padding-bottom: 100px;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 25px;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--text-main) 30%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- 5. BENTO GRID (Ecosystem) --- */
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        @media (min-width: 992px) {
+            .ecosystem-grid {
+                grid-template-columns: repeat(4, 1fr);
+                /* grid-auto-rows: minmax(250px, auto); */
+            }
+            .grid-span-2 { grid-column: span 2; }
+        }
+
+        .eco-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 30px;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .eco-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 30px -5px rgba(16, 185, 129, 0.15);
+        }
+
+        .eco-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        /* Live Badge Animation */
+        .live-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+        .pulse-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            margin-right: 6px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        /* --- 6. BUTTONS --- */
+        .btn-primary-glow {
+            background: var(--primary);
+            color: white !important;
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            border: none;
+            box-shadow: 0 5px 20px rgba(16, 185, 129, 0.3);
+            transition: 0.3s;
+        }
+        .btn-primary-glow:hover {
+            background: #059669; /* Darker Emerald */
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-outline-custom {
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            background: transparent;
+            transition: 0.3s;
+        }
+        .btn-outline-custom:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* --- 7. THEME TOGGLE --- */
+        .theme-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .theme-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* --- 8. FOOTER --- */
+        footer {
+            border-top: 1px solid var(--border);
+            margin-top: 100px;
+            padding: 60px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-floating">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#">
+                <i class="fa-solid fa-leaf text-success"></i>
+                <span>ParofAi</span>
+            </a>
+            
+            <div class="d-flex align-items-center gap-3 order-lg-2">
+                <button class="theme-btn" id="themeToggle"><i class="fa-solid fa-moon"></i></button>
+                <a href="#contact" class="btn btn-sm btn-primary-glow d-none d-md-block">Invest Now</a>
+                <button class="navbar-toggler border-0 p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                    <i class="fa-solid fa-bars" style="color: var(--text-main);"></i>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navMenu">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#problem">Problem</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#solution">Ecosystem</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#roadmap">Roadmap</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <span class="badge rounded-pill border border-success text-success bg-success bg-opacity-10 mb-4 px-3 py-2">
+                Managed By Interstolix
+            </span>
+            <h1 class="hero-title">
+                The AI-Powered <br> 
+                <span class="gradient-text">Career Navigator</span>
+            </h1>
+            <p class="lead text-muted mx-auto mb-5" style="max-width: 650px;">
+                We use real-time academic scanning to create a verifiable International Skill Identity, bridging the gap between degrees and global jobs.
+            </p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#contact" class="btn btn-primary-glow">Request Pitch Deck</a>
+                <a href="#solution" class="btn btn-outline-custom">How It Works</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="problem" class="py-5">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5">
+                    <h6 class="text-success fw-bold text-uppercase ls-1">The Crisis</h6>
+                    <h2 class="fw-bold mb-4">Degrees ≠ Employability</h2>
+                    <p class="text-muted mb-4">The disconnect between university syllabi and market needs is growing. This leads to wasted potential and a mental health crisis.</p>
+                    
+                    <div class="d-flex flex-column gap-3">
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="fa-solid fa-xmark text-danger"></i>
+                            <span class="text-muted">60% of graduates remain unemployed.</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="fa-solid fa-xmark text-danger"></i>
+                            <span class="text-muted">Curriculums are years behind market trends.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="eco-card text-center py-5 d-flex flex-column justify-content-center align-items-center" style="border-color: var(--primary);">
+                        <h2 class="display-2 fw-bold text-success mb-0">$404 Billion</h2>
+                        <p class="text-muted mt-2 mb-0">Global EdTech Market Opportunity (2025)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solution" class="py-5">
+        <div class="container py-5">
+            <div class="row mb-5">
+                <div class="col-lg-8">
+                    <h6 class="text-success fw-bold text-uppercase ls-1">The ParofAi Ecosystem</h6>
+                    <h2 class="display-5 fw-bold mb-3">A Complete Intelligence Loop</h2>
+                    <p class="text-muted lead">We connect Students, Universities, and the Job Market.</p>
+                </div>
+            </div>
+
+            <div class="ecosystem-grid">
+                
+                <div class="eco-card grid-span-2">
+                    <div class="live-badge"><span class="pulse-dot"></span> Active Scan</div>
+                    <div class="eco-icon"><i class="fa-solid fa-radar"></i></div>
+                    <h3 class="fw-bold mb-3">Real-Time Analysis</h3>
+                    <p class="text-muted mb-4">
+                        Our AI integrates with university platforms to live-scan grades and test scores. This creates a continuous record of progress.
+                    </p>
+                    <div class="progress" style="height: 6px; background: rgba(255,255,255,0.1);">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 75%"></div>
+                    </div>
+                </div>
+
+                <div class="eco-card">
+                    <div class="eco-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <h4 class="fw-bold">Mental Health First</h4>
+                    <p class="text-muted small">
+                        We prioritize confidence. We ask gentle "Opt-in" questions like "Would you like to strengthen your fundamentals?".
+                    </p>
+                </div>
+
+                <div class="eco-card">
+                    <div class="eco-icon"><i class="fa-solid fa-landmark"></i></div>
+                    <h4 class="fw-bold">Govt. Synergy</h4>
+                    <p class="text-muted small">
+                        We analyze data to tell Higher Ed Departments which syllabi are outdated, ensuring national curriculums stay future-ready.
+                    </p>
+                </div>
+
+                <div class="eco-card">
+                    <div class="eco-icon"><i class="fa-solid fa-fingerprint"></i></div>
+                    <h4 class="fw-bold">Skill Identity</h4>
+                    <p class="text-muted small">
+                        A verifiable digital portfolio that updates automatically. It documents every milestone, creating a profile recruiters trust.
+                    </p>
+                </div>
+
+                <div class="eco-card grid-span-2">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <div class="eco-icon mb-0"><i class="fa-solid fa-handshake-simple"></i></div>
+                        <span class="text-muted small fw-bold text-uppercase">B2B Integration</span>
+                    </div>
+                    <h3 class="fw-bold">The Feedback Loop</h3>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <h6 class="text-success fw-bold">For Universities</h6>
+                            <p class="text-muted small mb-0">Smart alerts allow proactive counseling for struggling students.</p>
+                        </div>
+                        <div class="col-md-6 mt-3 mt-md-0">
+                            <h6 class="text-success fw-bold">For Recruiters</h6>
+                            <p class="text-muted small mb-0">Direct access to high SkillScore™ talent for faster hiring.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap" class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="eco-card">
+                        <h4 class="fw-bold mb-5 text-center">Execution Roadmap</h4>
+                        <div class="row text-center g-4">
+                            <div class="col-4">
+                                <h6 class="text-success fw-bold mb-1">Q1 2026</h6>
+                                <small class="text-muted d-block">MVP Prototype</small>
+                                <div class="mt-2 bg-success rounded-pill" style="height: 4px; width: 60%; margin: 0 auto;"></div>
+                            </div>
+                            <div class="col-4">
+                                <h6 class="fw-bold mb-1">Q2 2026</h6>
+                                <small class="text-muted d-block">University Pilots</small>
+                                <div class="mt-2 bg-secondary rounded-pill opacity-25" style="height: 4px; width: 60%; margin: 0 auto;"></div>
+                            </div>
+                            <div class="col-4">
+                                <h6 class="fw-bold mb-1">Q1 2027</h6>
+                                <small class="text-muted d-block">Govt Scale</small>
+                                <div class="mt-2 bg-secondary rounded-pill opacity-25" style="height: 4px; width: 60%; margin: 0 auto;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <h3 class="fw-bold mb-2">ParofAi</h3>
+            <p class="text-muted small mb-4">Managed by Interstolix | Seeking Pre-Seed Funding</p>
+            
+            <div class="d-flex justify-content-center gap-4 mb-4 flex-wrap text-muted small">
+                <span><i class="fa-solid fa-user me-2 text-success"></i>Haseeb Asghar (CEO)</span>
+                <span><i class="fa-solid fa-envelope me-2 text-success"></i>infohaseebasghar@gmail.com</span>
+                <span><i class="fa-solid fa-phone me-2 text-success"></i>+92 317 4537215</span>
+            </div>
+            
+            <a href="mailto:Haseeb@interstolix.com" class="btn btn-outline-custom btn-sm">Contact Founder</a>
+            
+            <div class="mt-5 small text-muted opacity-50">&copy; 2025 ParofAi. All Rights Reserved.</div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const btn = document.getElementById('themeToggle');
+        const icon = btn.querySelector('i');
+        const html = document.documentElement;
+
+        // Force Dark Mode by Default
+        const saved = localStorage.getItem('theme') || 'dark';
+        html.setAttribute('data-theme', saved);
+        updateIcon(saved);
+
+        btn.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            updateIcon(next);
+        });
+
+        function updateIcon(theme) {
+            if(theme === 'dark') {
+                icon.className = 'fa-solid fa-sun';
+            } else {
+                icon.className = 'fa-solid fa-moon';
+            }
+        }
+    </script>
+</body>
+</html>

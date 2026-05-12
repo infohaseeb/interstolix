@@ -1,639 +1,706 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interstolix | Elevate Beyond the Cloud</title>
-<link rel="icon" href="favicon.ico" type="image/x-icon" />
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-
-
-
-
-
-
-
-
-  <!-- SEO Meta -->
-  <meta name="description" content="Interstolix delivers intelligent cloud, AI, ML, and robotics solutions across AWS, Azure, Google, and Oracle Cloud. We specialize in enterprise cloud, business solutions, and web & app development for global innovators." />
-  <meta name="keywords" content="Interstolix, Cloud Solutions, AI, Artificial Intelligence, Machine Learning, Robotics, Cloud Infrastructure, Cloud Migration, DevOps, Cloud Hosting, SaaS Development, Enterprise Cloud, Oracle Cloud, AWS Solutions, Microsoft Azure, Google Cloud, DigitalOcean, Cloud Automation, Data Analytics, Cybersecurity, Business Solutions, Web Development, App Development, Enterprise Solutions, Digital Transformation, IT Infrastructure, Cloud Engineering, Service Providers, Lahore Pakistan" />
-  <meta name="author" content="Interstolix " />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://www.interstolix.com/" />
-
-
-   <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.interstolix.com/" />
-  <meta property="og:title" content="Interstolix | Elevate Beyond the Cloud with AI, ML & Robotics" />
-  <meta property="og:description" content="Intelligent, scalable cloud and AI-powered infrastructure solutions across AWS, Azure, Google, and Oracle Cloud." />
-  <meta property="og:image" content="https://www.interstolix.com/translight1.png" />
-  <meta property="og:site_name" content="Interstolix" />
-  <meta property="og:locale" content="en_US" />
-
-
-
-  <!-- Security & Performance -->
-  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-  <meta name="referrer" content="no-referrer-when-downgrade" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <link rel="stylesheet" href="style.css">
-  <style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interstolix | Enterprise Cloud Solutions & DevOps</title>
     
-  </style>
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --cyan: #00A8E8;
+            --cyan-hover: #008ecc;
+            --dark: #0f172a; 
+            --gray: #64748b;
+            --bg-color: #f8fafc;
+            --white: #ffffff;
+            --border-color: #e2e8f0;
+            --glass-bg: rgba(255, 255, 255, 0.85);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: var(--bg-color); color: var(--dark); line-height: 1.6; overflow-x: hidden; }
+
+        /* ---------------- NAVBAR & HEADER ---------------- */
+        .navbar-wrapper { position: fixed; top: 20px; width: 100%; display: flex; justify-content: center; z-index: 1000; padding: 0 20px; }
+        header { 
+            background: var(--glass-bg); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.3); 
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05); padding: 8px 20px; border-radius: 100px; 
+            display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1300px;
+            position: relative; 
+        }
+        .logo-img { height: 32px; width: auto; }
+        
+        /* Desktop Navigation */
+        nav { display: flex; align-items: center; gap: 2px; }
+        .nav-item { position: relative; padding: 10px 8px; }
+        .nav-item > a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 13px; display: flex; align-items: center; gap: 4px; transition: 0.3s; }
+        .nav-item:hover > a { color: var(--cyan); }
+        
+        .dropdown-menu { 
+            position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px); 
+            background: var(--white); min-width: 220px; border-radius: 16px; 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1); border: 1px solid var(--border-color); 
+            padding: 15px; opacity: 0; visibility: hidden; transition: 0.3s ease; 
+        }
+        .nav-item:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .dropdown-menu a { display: block; padding: 10px 15px; color: var(--gray); text-decoration: none; font-size: 13.5px; font-weight: 500; border-radius: 8px; transition: 0.2s; }
+        .dropdown-menu a:hover { background: var(--bg-color); color: var(--cyan); padding-left: 20px; }
+        
+        .btn-nav { background: var(--dark); color: var(--white) !important; padding: 10px 20px; border-radius: 100px; font-weight: 600; margin-left: 5px; font-size: 13.5px; text-decoration: none; }
+
+        /* Hamburger Button */
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 28px; color: var(--dark); cursor: pointer; }
+
+        /* ---------------- AESTHETIC HERO SECTION ---------------- */
+        .hero { position: relative; padding: 220px 20px 140px; text-align: center; overflow: hidden; background-color: var(--white); }
+        .hero-bg-grid { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(100, 116, 139, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(100, 116, 139, 0.08) 1px, transparent 1px); background-size: 40px 40px; z-index: 0; mask-image: linear-gradient(to bottom, black 40%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%); }
+        .hero-glow { position: absolute; width: 500px; height: 500px; filter: blur(120px); border-radius: 50%; opacity: 0.2; z-index: 0; animation: float 8s infinite ease-in-out alternate; }
+        .glow-1 { top: -150px; left: -100px; background: var(--cyan); }
+        .glow-2 { bottom: -100px; right: -100px; background: #4285F4; animation-delay: -4s; }
+        @keyframes float { 0% { transform: translateY(0px) scale(1); } 100% { transform: translateY(40px) scale(1.05); } }
+        .hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+        .hero-badge { background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.8); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); padding: 8px 20px; border-radius: 100px; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--gray); margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
+        .pulse-dot { width: 8px; height: 8px; background-color: #10b981; border-radius: 50%; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); animation: pulse-green 2s infinite; }
+        @keyframes pulse-green { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
+        .hero h1 { font-size: 64px; font-weight: 800; letter-spacing: -2px; margin-bottom: 24px; line-height: 1.1; }
+        .highlight { background: linear-gradient(45deg, var(--cyan), #0056b3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { color: var(--gray); font-size: 19px; max-width: 650px; margin: 0 auto 40px; line-height: 1.7; }
+        .hero-actions { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .btn-primary { background: var(--dark); color: var(--white); padding: 16px 36px; border-radius: 100px; font-weight: 600; text-decoration: none; font-size: 16px; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.2); display: flex; align-items: center; gap: 8px; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(15, 23, 42, 0.3); background: var(--cyan); }
+        .btn-outline { background: var(--white); color: var(--dark); border: 1px solid var(--border-color); padding: 16px 36px; border-radius: 100px; font-weight: 600; text-decoration: none; font-size: 16px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+        .btn-outline:hover { border-color: var(--cyan); color: var(--cyan); transform: translateY(-3px); }
+
+        /* ---------------- PLATFORMS SECTION ---------------- */
+        .platforms-section { padding: 60px 20px; text-align: center; background: #fff; border-top: 1px solid var(--border-color); position: relative; z-index: 1;}
+        .platforms-header { font-size: 13px; font-weight: 700; color: var(--gray); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 40px; }
+        .platform-grid { display: grid; grid-template-columns: repeat(4, 1fr); max-width: 1100px; margin: 0 auto; gap: 30px; }
+        .platform-card { padding: 30px; background: var(--bg-color); border-radius: 20px; border: 1px solid var(--border-color); transition: 0.3s; display: flex; flex-direction: column; align-items: center; gap: 15px; }
+        .platform-card:hover { background: #fff; border-color: var(--cyan); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,168,232,0.1); }
+        .platform-card img { height: 40px; filter: grayscale(100%); transition: 0.3s; }
+        .platform-card:hover img { filter: grayscale(0%); }
+        .platform-card span { font-size: 12px; font-weight: 700; color: var(--gray); }
+
+        /* ---------------- LAYOUT UTILITIES & CARDS ---------------- */
+        .section-container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 36px; font-weight: 800; margin-bottom: 15px; color: var(--dark); }
+        .section-header p { color: var(--gray); font-size: 18px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+        .card { background: #fff; padding: 40px; border-radius: 24px; border: 1px solid var(--border-color); transition: 0.3s; }
+        .card:hover { border-color: var(--cyan); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .card i { font-size: 40px; color: var(--cyan); display: block; margin-bottom: 20px; }
+        .card h4 { font-size: 20px; margin-bottom: 15px; }
+        .card p { color: var(--gray); font-size: 15px; }
+
+        /* ---------------- PROCESS STEPS ---------------- */
+        .step-card { text-align: center; position: relative; padding: 30px 20px; }
+        .step-number { width: 60px; height: 60px; background: #e6f6fc; color: var(--cyan); font-size: 24px; font-weight: 800; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; border: 4px solid #fff; box-shadow: 0 10px 20px rgba(0,168,232,0.1); z-index: 2; position: relative; }
+        .step-card h4 { margin-bottom: 10px; font-size: 18px; }
+        .step-card p { color: var(--gray); font-size: 14px; }
+        .step-line::after { content: ''; position: absolute; top: 60px; left: 50%; width: 100%; height: 2px; background: var(--border-color); z-index: 1; }
+        .step-card:last-child::after { display: none; }
+
+        /* ---------------- TESTIMONIALS ---------------- */
+        .testimonial-card { background: var(--bg-color); border: none; padding: 40px; border-radius: 24px; }
+        .stars { color: #f59e0b; font-size: 14px; margin-bottom: 15px; }
+        .testimonial-text { font-size: 16px; font-style: italic; color: var(--dark); margin-bottom: 20px; line-height: 1.7; }
+        .client-info { display: flex; align-items: center; gap: 15px; }
+        .client-avatar { width: 50px; height: 50px; background: var(--cyan); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; }
+        .client-details h5 { font-size: 15px; margin-bottom: 3px; }
+        .client-details span { font-size: 13px; color: var(--gray); }
+
+        /* ---------------- CTA BANNER ---------------- */
+        .cta-banner { background: var(--dark); border-radius: 30px; padding: 80px 40px; text-align: center; color: white; box-shadow: 0 30px 60px rgba(0,0,0,0.15); margin-bottom: 40px; position: relative; overflow: hidden; }
+        .cta-banner::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, var(--cyan), #4285F4, #00A8E8); }
+        .cta-banner h2 { font-size: 40px; font-weight: 800; margin-bottom: 20px; }
+        .cta-banner p { font-size: 18px; color: #cbd5e1; max-width: 600px; margin: 0 auto 40px; }
+        .cta-btn { background: var(--cyan); color: white; padding: 18px 40px; border-radius: 100px; font-weight: 700; font-size: 16px; text-decoration: none; transition: 0.3s; display: inline-block; }
+        .cta-btn:hover { background: var(--white); color: var(--dark); transform: translateY(-3px); }
+
+        /* ---------------- MODERN FOOTER ---------------- */
+        .modern-footer { background: #fff; border-top: 1px solid var(--border-color); padding: 80px 20px 40px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; max-width: 1200px; margin: 0 auto; gap: 40px; }
+        .footer-logo { height: 40px; margin-bottom: 20px; }
+        .footer-col h5 { margin-bottom: 20px; font-size: 16px; font-weight: 700; color: var(--dark); }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 12px; }
+        .footer-col a { color: var(--gray); text-decoration: none; font-size: 14px; transition: 0.3s; }
+        .footer-col a:hover { color: var(--cyan); }
+        .footer-bottom { max-width: 1200px; margin: 40px auto 0; border-top: 1px solid var(--border-color); padding-top: 30px; display: flex; justify-content: space-between; font-size: 13px; color: var(--gray); }
+
+        /* ---------------- EXPERT CHATBOX FIXED & ANCHORED ---------------- */
+        .chat-widget { position: fixed; bottom: 20px; right: 20px; z-index: 9999; font-family: 'Plus Jakarta Sans', sans-serif;}
+        .chat-toggle { width: 60px; height: 60px; background: var(--cyan); border-radius: 50%; color: white; display: flex; justify-content: center; align-items: center; font-size: 24px; cursor: pointer; box-shadow: 0 10px 30px rgba(0, 168, 232, 0.4); border: none; outline: none; transition: 0.3s; position: relative;}
+        .chat-toggle:hover { transform: scale(1.05); background: var(--cyan-hover);}
+        .ping-ring { position: absolute; width: 100%; height: 100%; border-radius: 50%; background-color: var(--cyan); opacity: 0.6; z-index: -1; animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;}
+        .notification-badge { position: absolute; top: -2px; right: -2px; background: #ef4444; color: white; font-size: 11px; font-weight: bold; width: 20px; height: 20px; display: flex; justify-content: center; align-items: center; border-radius: 50%; border: 2px solid white; }
+        @keyframes ping { 75%, 100% { transform: scale(1.8); opacity: 0; } }
+
+        .chat-window { 
+            position: absolute; bottom: 75px; right: 0; width: 350px; background: white; border-radius: 20px; box-shadow: 0 15px 50px rgba(0,0,0,0.15); border: 1px solid var(--border-color); overflow: hidden; 
+            transform-origin: bottom right; transform: scale(0.5); opacity: 0; visibility: hidden; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; flex-direction: column;
+        }
+        .chat-window.active { transform: scale(1); opacity: 1; visibility: visible; }
+        .chat-header { background: var(--dark); color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+        .chat-header-info h4 { font-size: 16px; margin: 0 0 4px 0; }
+        .chat-header-info p { margin: 0; font-size: 12px; color: #94a3b8; display: flex; align-items: center; gap: 5px;}
+        .chat-header-actions { display: flex; align-items: center; gap: 12px; }
+        .chat-end-btn { background: #ef4444; border: none; color: white; padding: 5px 10px; border-radius: 6px; font-size: 12px; font-weight: bold; cursor: pointer; display: none; transition: 0.3s; }
+        .chat-end-btn:hover { background: #dc2626; }
+        .chat-close { background: none; border: none; color: white; font-size: 24px; cursor: pointer; line-height: 1;}
+        .chat-body { padding: 20px; height: 350px; display: flex; flex-direction: column;}
+        .chat-form-view { flex-grow: 1; overflow-y: auto;}
+        .chat-form-view p { font-size: 13px; color: var(--gray); margin-bottom: 15px;}
+        .chat-input-group { margin-bottom: 12px; }
+        .chat-input-group input, .chat-input-group textarea { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 10px; font-size: 13px; font-family: inherit; outline: none; background: var(--bg-color); transition: 0.3s;}
+        .chat-input-group input:focus, .chat-input-group textarea:focus { border-color: var(--cyan); background: white;}
+        .chat-submit-btn { width: 100%; background: var(--cyan); color: white; padding: 12px; border: none; border-radius: 10px; font-weight: 600; font-size: 14px; cursor: pointer; transition: 0.3s; margin-top: 5px;}
+        .chat-submit-btn:hover { background: var(--dark); }
+        .chat-active-view { display: none; flex-direction: column; height: 100%; padding: 0 !important;}
+        .chat-messages { flex-grow: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 15px;}
+        .chat-msg { max-width: 85%; padding: 12px 15px; border-radius: 15px; font-size: 13.5px; line-height: 1.5;}
+        .msg-agent { background: var(--bg-color); color: var(--dark); align-self: flex-start; border-bottom-left-radius: 4px;}
+        .msg-user { background: var(--cyan); color: white; align-self: flex-end; border-bottom-right-radius: 4px;}
+        .chat-input-area { padding: 15px; border-top: 1px solid var(--border-color); display: flex; gap: 10px; background: white;}
+        .chat-input-area input { flex-grow: 1; padding: 10px 15px; border: 1px solid var(--border-color); border-radius: 100px; font-size: 13px; outline: none;}
+        .chat-input-area input:focus { border-color: var(--cyan); }
+        .chat-send-btn { width: 40px; height: 40px; border-radius: 50%; background: var(--cyan); border: none; color: white; display: flex; justify-content: center; align-items: center; cursor: pointer; transition: 0.2s;}
+        .chat-send-btn:hover { background: var(--dark); }
+
+        /* ---------------- RESPONSIVE FIXES (FIXED MOBILE MENU) ---------------- */
+        @media (max-width: 1150px) { 
+            /* Show Hamburger Button */
+            .mobile-menu-btn { display: block; }
+            
+            /* Hide default nav layout and convert to mobile style */
+            nav#mainNav { 
+                position: absolute; 
+                top: 70px; /* Just below header */
+                left: 0; 
+                width: 100%; 
+                background: var(--white); /* Solid white to fix bleed-through issue */
+                border: 1px solid var(--border-color); 
+                border-radius: 20px; 
+                flex-direction: column; 
+                align-items: flex-start; 
+                padding: 10px 20px; 
+                box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+                
+                /* Hidden state initially */
+                opacity: 0; 
+                visibility: hidden; 
+                transform: translateY(-10px); 
+                transition: 0.3s ease;
+                display: flex;
+                z-index: 1001; 
+                max-height: 80vh; 
+                overflow-y: auto;
+            }
+
+            /* Active state for toggle */
+            nav#mainNav.mobile-active { 
+                opacity: 1; 
+                visibility: visible; 
+                transform: translateY(0); 
+            }
+
+            .nav-item { width: 100%; padding: 0; border-bottom: 1px solid var(--border-color); }
+            .nav-item:last-of-type { border-bottom: none; }
+            
+            .nav-item > a { 
+                padding: 15px 10px; 
+                justify-content: space-between; 
+                font-size: 15px; 
+                width: 100%;
+            }
+            
+            /* Fix Dropdown inside Mobile */
+            .dropdown-menu { 
+                position: static; 
+                transform: none; 
+                width: 100%; 
+                box-shadow: none; 
+                border: none; 
+                padding: 0 10px 10px 20px; /* Indent sub-links */
+                background: var(--bg-color); /* Light solid grey to contrast */
+                display: none; /* Hide by default */
+                opacity: 1; 
+                visibility: visible; 
+                border-radius: 12px; 
+                margin-top: 0;
+                margin-bottom: 10px;
+            }
+            
+            /* Hover opens dropdown on mobile */
+            .nav-item:hover .dropdown-menu,
+            .nav-item:focus-within .dropdown-menu { 
+                display: block; 
+            }
+            
+            .dropdown-menu a { padding: 12px 10px; font-size: 14px; border-bottom: none;}
+            
+            .btn-nav { width: calc(100% - 20px); text-align: center; margin: 15px 10px; padding: 15px; font-size: 15px; }
+        }
+
+        @media (max-width: 992px) { 
+            .platform-grid, .grid-3, .grid-4, .footer-grid { grid-template-columns: repeat(2, 1fr); } 
+            .step-line::after { display: none; } 
+            header { border-radius: 30px; } 
+        }
+
+        @media (max-width: 768px) { 
+            .hero h1 { font-size: 40px; } 
+            .hero { padding: 160px 20px 100px; } 
+            .grid-3, .grid-4, .footer-grid { grid-template-columns: 1fr; text-align: center; } 
+            .footer-col img { margin: 0 auto; display: block; } 
+            .footer-bottom { flex-direction: column; text-align: center; gap: 15px;} 
+            .cta-banner h2 { font-size: 32px; } 
+            .cta-banner { padding: 60px 20px; } 
+            .chat-window { width: 300px; bottom: 70px; right: 0px;} 
+            .platform-grid { grid-template-columns: repeat(2, 1fr); } 
+        }
+    </style>
 </head>
 <body>
 
-  <!-- 🔹 Topbar -->
-<div class="topbar">
-  <div class="boxed py-1 border-bottom border-secondary small">
-    
-    <!-- Mobile View Row -->
-    <div class="d-flex d-md-none justify-content-between align-items-center">
-      <div><i class="bi bi-telephone me-1"></i> +92 313 4490790</div>
-      <div><i class="bi bi-clock me-1"></i> Mon–Fri 9AM–6PM</div>
+    <!-- NAVBAR WITH MOBILE FIX -->
+    <div class="navbar-wrapper">
+        <header>
+            <a href="#">
+                <img src="translight1.png" alt="Interstolix Logo" class="logo-img">
+            </a>
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="bi bi-list"></i>
+            </button>
+
+            <nav id="mainNav">
+                <div class="nav-item"><a href="#">Home</a></div>
+                
+                <div class="nav-item">
+                    <a href="#">Company <i class="bi bi-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#about">About Us</a>
+                        <a href="#leadership">Leadership Team</a>
+                        <a href="#offices">Our Offices</a>
+                        <a href="#culture">Community & Culture</a>
+                        <a href="#press">Press Office</a>
+                        <a href="#investors">Investors</a>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <a href="#">Solutions <i class="bi bi-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#migration">Cloud Migration</a>
+                        <a href="#devops">DevOps Automation</a>
+                        <a href="#managed">Managed Services</a>
+                        <a href="#audit">Security & Cloud Audit</a>
+                        <a href="#finops">Cloud Cost Optimization</a>
+                    </div>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="#">Industries <i class="bi bi-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#finance">FinTech & Banking</a>
+                        <a href="#healthcare">Healthcare</a>
+                        <a href="#ecommerce">E-Commerce & Retail</a>
+                        <a href="#saas">SaaS & Startups</a>
+                    </div>
+                </div>
+                
+                <div class="nav-item"><a href="#training">Training</a></div>
+                <div class="nav-item"><a href="#events">Events</a></div>
+                <div class="nav-item"><a href="#careers">Careers</a></div>
+                <div class="nav-item"><a href="contact.html">Contact</a></div>
+                
+                <a href="#quote" class="btn-nav">Consult an Expert</a>
+            </nav>
+        </header>
     </div>
 
-    <!-- Desktop View Row -->
-    <div class="d-none d-md-flex flex-wrap justify-content-between align-items-center">
-      <div class="d-flex align-items-center gap-3">
-        <div><i class="bi bi-telephone me-1"></i> +92 313 4490790</div>
-        <div><i class="bi bi-clock me-1"></i> Mon–Fri 9AM–6PM</div>
-         
-      </div>
-      <div class="d-flex align-items-center gap-3">
+    <!-- AESTHETIC HERO SECTION -->
+    <section class="hero">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-glow glow-1"></div>
+        <div class="hero-glow glow-2"></div>
 
-        <div><i class="bi bi-envelope me-1"></i> support@interstolix.com</div>
-        <div><i class="bi bi-geo-alt me-1"></i> Lahore, Pakistan</div>
-        
-      </div>
-    </div>
-
-  </div>
-</div>
-
-
- <nav class="navbar navbar-expand-lg mt-3 boxed">
-  <div class="container-fluid d-flex align-items-center">
-    <!-- Logo -->
-   <a class="navbar-brand" href="#">
-  <img src="logointer1.png" alt="Interstolix Logo Dark" class="logo-dark">
-  <img src="translight1.png" alt="Interstolix Logo Light" class="logo-light">
-</a>
-
-
-    <!-- Toggler -->
-    <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Centered Menu -->
-    <div class="collapse navbar-collapse justify-content-center" id="mainNav">
-      <ul class="navbar-nav mb-2 mb-lg-0 d-flex gap-3">
-        
-        <!-- Home -->
-        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-
-        <!-- Company Dropdown -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="companyDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Company</a>
-          <ul class="dropdown-menu" aria-labelledby="companyDropdown">
-            <li><a class="dropdown-item" href="about.html">About Us</a></li>
-            <li><a class="dropdown-item" href="team.html">Our Team</a></li>
-            <li><a class="dropdown-item" href="mission-values.html">Mission & Values</a></li>
-          </ul>
-        </li>
-
-        <!-- Solutions Mega Menu -->
-        <li class="nav-item dropdown solutions">
-          <a class="nav-link dropdown-toggle" href="" id="solutionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Solutions</a>
-          <div class="dropdown-menu mega-menu p-4" aria-labelledby="solutionsDropdown">
-            <div class="row">
-
-              <!-- Cloud Solutions -->
-              <div class="col-lg-2 col-md-4">
-                <h6 class="dropdown-header">Cloud Solutions</h6>
-                <a class="dropdown-item" href="#cloud-dev">Cloud Development</a>
-                <a class="dropdown-item" href="#aws">AWS Solutions</a>
-                <a class="dropdown-item" href="#azure">Microsoft Azure</a>
-                <a class="dropdown-item" href="#gcp">Google Cloud</a>
-                <a class="dropdown-item" href="#cloud-hosting">Cloud Hosting</a>
-                <a class="dropdown-item" href="#cloud-migration">Cloud Migration</a>
-              </div>
-
-              <!-- Enterprise Solutions -->
-              <div class="col-lg-2 col-md-4">
-                <h6 class="dropdown-header">Enterprise Solutions</h6>
-                <a class="dropdown-item" href="#enterprise-cloud">Enterprise Cloud</a>
-                <a class="dropdown-item" href="#erp">ERP Systems</a>
-                <a class="dropdown-item" href="#crm">CRM Solutions</a>
-                <a class="dropdown-item" href="#infra">IT Infrastructure</a>
-                <a class="dropdown-item" href="#cyber">Cybersecurity</a>
-              </div>
-
-              <!-- Business Solutions -->
-              <div class="col-lg-2 col-md-4">
-                <h6 class="dropdown-header">Business Solutions</h6>
-                <a class="dropdown-item" href="#automation">Automation</a>
-                <a class="dropdown-item" href="#analytics">Data Analytics</a>
-                <a class="dropdown-item" href="#workflow">Workflow Optimization</a>
-                <a class="dropdown-item" href="#collab">Collaboration Tools</a>
-                <a class="dropdown-item" href="#custom-apps">Custom Applications</a>
-              </div>
-
-              <!-- Web & App Development -->
-              <div class="col-lg-3 col-md-6">
-                <h6 class="dropdown-header">Web & App Development</h6>
-                <a class="dropdown-item" href="#web-dev">Web Development</a>
-                <a class="dropdown-item" href="#ecommerce">E-Commerce</a>
-                <a class="dropdown-item" href="#mobile-app">Mobile Apps</a>
-                <a class="dropdown-item" href="#uiux">UI/UX Design</a>
-                <a class="dropdown-item" href="#cms">CMS Development</a>
-              </div>
-
-              <!-- Digital Marketing -->
-              <div class="col-lg-3 col-md-6">
-                <h6 class="dropdown-header">Digital Marketing</h6>
-                <a class="dropdown-item" href="#seo">SEO</a>
-                <a class="dropdown-item" href="#smm">Social Media Marketing</a>
-                <a class="dropdown-item" href="#ads">Google Ads</a>
-                <a class="dropdown-item" href="#content">Content Marketing</a>
-                <a class="dropdown-item" href="#email">Email Marketing</a>
-              </div>
-
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="pulse-dot"></span> Next-Gen Cloud Strategy
             </div>
-          </div>
-        </li>
-
-        <!-- Insights Dropdown -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="insightsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Insights</a>
-          <ul class="dropdown-menu" aria-labelledby="insightsDropdown">
-            <li><a class="dropdown-item" href="#blog">Blog</a></li>
-            <li><a class="dropdown-item" href="#news">News</a></li>
-            <li><a class="dropdown-item" href="#reports">Reports</a></li>
-          </ul>
-        </li>
-
-        <!-- Investors Dropdown -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="investorsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Investors</a>
-          <ul class="dropdown-menu" aria-labelledby="investorsDropdown">
-            <li><a class="dropdown-item" href="#investor-relations">Investor Relations</a></li>
-            <li><a class="dropdown-item" href="#financials">Financials</a></li>
-            <li><a class="dropdown-item" href="#shareholders">Shareholders</a></li>
-          </ul>
-        </li>
-
-        <!-- Careers -->
-        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="Careers.html">Careers</a></li>
-
-      </ul>
-    </div>
-
-    <!-- CTA Buttons -->
-   <div class="d-flex gap-2 ms-auto">
-        <a href="contact.html" class="btn btn-outline-light btn-sm">Contact us </a>
-        <a href="#" class="btn btn-primary btn-sm">Get a Quote</a>
-      </div>
-
-    </div>
-  </div>
-</nav>
-
-
-
- 
-
-<!-- 🔹 Hero Section -->
-<section class="hero-section text-white py-5">
-  <div class="boxed hero-card d-flex flex-column flex-lg-row align-items-center gap-5">
-    
-    <!-- Left: Text -->
-    <div class="flex-grow-1 text-center text-lg-start">
-      <h2 class="h4 text-info mb-3">Elevate Beyond the Cloud with AI</h2>
-      <p class="lead mb-4">
-        We're crafting intelligent cloud solutions powered by Artificial Intelligence and Machine Learning.  
-        <br class="d-none d-lg-block" />Stay tuned — something amazing is on the horizon.
-      </p>
-      <div class="d-flex gap-3 flex-wrap justify-content-center justify-content-lg-start">
-<a href="#" class="btn btn-outline-light btn-lg px-4">Join the Waitlist</a>
-        <a href="#quote" class="btn btn-primary btn-lg px-4">Get Early Access</a>
-      </div>
-    </div>
-
-    <!-- Right: Image -->
-    <div class="hero-image position-relative">
-      <div class="glow-bg"></div>
-      <img src="he1.jpg" alt="AI Cloud Illustration" class="img-fluid rounded">
-    </div>
-
-  </div>
-</section>
-
-
-
-
-
-<!-- 🔹 Stats Section -->
-<section class="stats-section text-white py-5">
-  <div class="boxed text-center">
-    <h2 class="display-5 fw-bold mb-4">Our Impact in Numbers</h2>
-    <p class="lead text-secondary mb-5">Delivering scalable solutions with proven results across global cloud infrastructure.</p>
-
-    <div class="row text-center g-4">
-      
-      <!-- Stat 1 -->
-      <div class="col-md-3">
-        <div class="stat-card p-4 rounded-4 shadow-sm h-100">
-          <h3 class="display-4 fw-bold text-info">10+</h3>
-          <p class="text-secondary mb-0">Cloud Deployments</p>
+            <h1>Architecting the <span class="highlight">Future</span><br>of Cloud Infrastructure</h1>
+            <p>Expert cloud engineering and DevOps automation to help your enterprise scale securely across AWS, Azure, and Google Cloud.</p>
+            
+            <div class="hero-actions">
+                <a href="#quote" class="btn-primary">
+                    Start Your Migration <i class="bi bi-arrow-right"></i>
+                </a>
+                <a href="#solutions" class="btn-outline">
+                    Explore Solutions
+                </a>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <!-- Stat 2 -->
-      <div class="col-md-3">
-        <div class="stat-card p-4 rounded-4 shadow-sm h-100">
-          <h3 class="display-4 fw-bold text-info">99.99%</h3>
-          <p class="text-secondary mb-0">Infrastructure Uptime</p>
+    <!-- PLATFORMS SECTION -->
+    <section class="platforms-section">
+        <div class="platforms-header">Our Certified Cloud Ecosystem</div>
+        <div class="platform-grid">
+            <div class="platform-card">
+                <img src="AWS.png" alt="AWS" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg'">
+                <span>Advanced Partner</span>
+            </div>
+            <div class="platform-card">
+                <img src="azure.png" alt="Azure" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg'">
+                <span>Solution Provider</span>
+            </div>
+            <div class="platform-card">
+                <img src="GOO.svg" alt="Google Cloud" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg'">
+                <span>GCP Certified</span>
+            </div>
+            <div class="platform-card">
+                <img src="DigitalOcean_logo.png" alt="DigitalOcean" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/f/ff/DigitalOcean_logo.svg'">
+                <span>Infrastructure Expert</span>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <!-- Stat 3 -->
-      <div class="col-md-3">
-        <div class="stat-card p-4 rounded-4 shadow-sm h-100">
-          <h3 class="display-4 fw-bold text-info">12+</h3>
-          <p class="text-secondary mb-0">Custom Cloud Apps</p>
+    <!-- CORE SOLUTIONS -->
+    <section class="section-container" id="solutions">
+        <div class="section-header">
+            <h2>Our Core Expertise</h2>
+            <p>Tailored enterprise cloud services designed for maximum scalability.</p>
         </div>
-      </div>
-
-      <!-- Stat 4 -->
-      <div class="col-md-3">
-        <div class="stat-card p-4 rounded-4 shadow-sm h-100">
-          <h3 class="display-4 fw-bold text-info">5+</h3>
-          <p class="text-secondary mb-0">Enterprise Clients</p>
+        <div class="grid-3">
+            <div class="card">
+                <i class="bi bi-cloud-arrow-up"></i>
+                <h4>Cloud Migration</h4>
+                <p>Seamlessly move your legacy on-premise workloads to the cloud with zero data loss and minimal downtime.</p>
+            </div>
+            <div class="card">
+                <i class="bi bi-gear-wide-connected"></i>
+                <h4>DevOps Automation</h4>
+                <p>Accelerate release cycles by implementing robust CI/CD pipelines, Docker, Kubernetes, and IaC.</p>
+            </div>
+            <div class="card">
+                <i class="bi bi-shield-check"></i>
+                <h4>Managed Cloud Security</h4>
+                <p>24/7 proactive monitoring, threat detection, and compliance management (SOC2, HIPAA, GDPR).</p>
+            </div>
         </div>
-      </div>
+    </section>
 
-    </div>
-  </div>
-</section>
-
-
-
-
-
-<!-- 🔹 Our Capabilities Section -->
-<section class="capabilities-section text-white py-5">
-  <div class="boxed text-center">
-    <h2 class="display-5 fw-bold mb-4">Our Capabilities</h2>
-    <p class="lead text-secondary mb-5">
-      Cloud-native solutions engineered for scale, security, and innovation — across every major platform.
-    </p>
-
-    <div class="row g-4">
-      <!-- Capability 1 -->
-      <div class="col-md-4 d-flex">
-        <div class="card capability-card border-0 rounded-4 w-100 p-4 shadow-sm text-center">
-          <i class="bi bi-cloud-fill fs-1 text-info mb-3"></i>
-          <h5 class="fw-bold mb-2">Multi-Cloud Deployments</h5>
-          <p class="text-secondary">
-            We design and deploy on AWS, Azure, Google Cloud, DigitalOcean, and hybrid setups tailored to your business.
-          </p>
+    <!-- OUR PROCESS -->
+    <section class="section-container" style="background: var(--white); border-radius: 30px; margin-bottom: 40px;">
+        <div class="section-header">
+            <h2>How We Work</h2>
+            <p>A proven, structured approach to modernizing your IT infrastructure.</p>
         </div>
-      </div>
-
-      <!-- Capability 2 -->
-      <div class="col-md-4 d-flex">
-        <div class="card capability-card border-0 rounded-4 w-100 p-4 shadow-sm text-center">
-          <i class="bi bi-diagram-3-fill fs-1 text-info mb-3"></i>
-          <h5 class="fw-bold mb-2">Infrastructure Engineering</h5>
-          <p class="text-secondary">
-            We build scalable, automated infrastructure using Terraform, Kubernetes, Docker, and serverless tools.
-          </p>
+        <div class="grid-4">
+            <div class="step-card step-line">
+                <div class="step-number">1</div>
+                <h4>Discover & Audit</h4>
+                <p>We analyze your current architecture, identify bottlenecks, and map out business objectives.</p>
+            </div>
+            <div class="step-card step-line">
+                <div class="step-number">2</div>
+                <h4>Architect</h4>
+                <p>Our engineers design a highly available, secure, and cost-efficient cloud topology.</p>
+            </div>
+            <div class="step-card step-line">
+                <div class="step-number">3</div>
+                <h4>Migrate & Build</h4>
+                <p>We execute the migration with automated pipelines ensuring zero disruption to your users.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h4>Optimize</h4>
+                <p>Post-migration, we implement FinOps strategies and 24/7 monitoring to keep systems healthy.</p>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <!-- Capability 3 -->
-      <div class="col-md-4 d-flex">
-        <div class="card capability-card border-0 rounded-4 w-100 p-4 shadow-sm text-center">
-          <i class="bi bi-layers-fill fs-1 text-info mb-3"></i>
-          <h5 class="fw-bold mb-2">Custom Cloud Software</h5>
-          <p class="text-secondary">
-            Build tailored SaaS platforms and cloud-native apps that integrate deeply with your tech stack and goals.
-          </p>
+    <!-- WHY CHOOSE US -->
+    <section class="section-container">
+        <div class="section-header">
+            <h2>Why Partner With Interstolix?</h2>
+            <p>We don't just host your data; we engineer your success.</p>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="grid-3">
+            <div class="card" style="background: var(--bg-color);">
+                <i class="bi bi-patch-check-fill"></i>
+                <h4>Certified Cloud Architects</h4>
+                <p>Our team holds top-tier certifications from AWS, Microsoft Azure, and Google Cloud Platform.</p>
+            </div>
+            <div class="card" style="background: var(--bg-color);">
+                <i class="bi bi-headset"></i>
+                <h4>24/7 NOC Support</h4>
+                <p>Our Network Operations Center monitors your critical infrastructure round-the-clock, 365 days a year.</p>
+            </div>
+            <div class="card" style="background: var(--bg-color);">
+                <i class="bi bi-graph-down-arrow"></i>
+                <h4>Cloud Cost Optimization</h4>
+                <p>We continuously analyze resource utilization to prevent cloud waste, saving clients an average of 30%.</p>
+            </div>
+        </div>
+    </section>
 
+    <!-- TESTIMONIALS -->
+    <section class="section-container">
+        <div class="section-header">
+            <h2>Trusted by Industry Leaders</h2>
+            <p>See what our enterprise clients have to say about our cloud solutions.</p>
+        </div>
+        <div class="grid-3">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Interstolix completely transformed our deployment cycle. Their DevOps automation reduced our release time from weeks to mere hours."</p>
+                <div class="client-info">
+                    <div class="client-avatar">A</div>
+                    <div class="client-details">
+                        <h5>Ali Raza</h5>
+                        <span>CTO, FinEdge Tech</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"The AWS migration was flawless. Zero downtime and their team optimized our architecture to save us 25% on our monthly AWS bill."</p>
+                <div class="client-info">
+                    <div class="client-avatar">S</div>
+                    <div class="client-details">
+                        <h5>Sarah Khan</h5>
+                        <span>VP Engineering, HealthSync</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Their 24/7 managed support gives us incredible peace of mind. We can finally focus on our product instead of worrying about server crashes."</p>
+                <div class="client-info">
+                    <div class="client-avatar">O</div>
+                    <div class="client-details">
+                        <h5>Omar Tariq</h5>
+                        <span>Founder, E-Retail Network</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- CTA BANNER -->
+    <section class="section-container" style="padding-bottom: 20px;">
+        <div class="cta-banner">
+            <h2>Ready to Transform Your Infrastructure?</h2>
+            <p>Schedule a free cloud audit with our senior architects and discover how we can optimize your performance, security, and costs.</p>
+            <a href="contact.html" class="cta-btn">Get Your Free Cloud Audit</a>
+        </div>
+    </section>
 
+    <!-- MODERN FOOTER -->
+    <footer class="modern-footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <img src="translight1.png" alt="Interstolix" class="footer-logo">
+                <p style="color:var(--gray); font-size: 14px; margin-top: 15px;">Premier Cloud Engineering & DevOps partner for global enterprises.</p>
+            </div>
+            <div class="footer-col">
+                <h5>Company</h5>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#leadership">Leadership Team</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Cloud Services</h5>
+                <ul>
+                    <li><a href="#aws">AWS Solutions</a></li>
+                    <li><a href="#azure">Azure Management</a></li>
+                    <li><a href="#gcp">GCP Migration</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Contact</h5>
+                <ul>
+                    <li><a href="mailto:cloud@interstolix.com"><i class="bi bi-envelope"></i> cloud@interstolix.com</a></li>
+                    <li><a href="tel:+923134490790"><i class="bi bi-telephone"></i> +92 313 4490790</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Interstolix LLC. All rights reserved.</span>
+            <span>Cloud Excellence Guaranteed</span>
+        </div>
+    </footer>
 
-
-<!-- 🔹 Partners Section -->
-<section class="partners-section text-white py-5">
-  <div class="boxed text-center mb-4">
-    <h2 class="display-6 fw-bold">Our Trusted Partners</h2>
-    <p class="text-secondary">We collaborate with industry leaders to deliver cutting-edge cloud solutions.</p>
-  </div>
-
-  <div class="boxed">
-    <div class="logo-slider">
-      <div class="logo-track">
-        <img src="azure.png" alt="Azure">
-                <img src="AWS.png" alt="aws">
-
-        <img src="GOO.svg" alt="Google Cloud">
-        <img src="DigitalOcean_logo.png" alt="DigitalOcean">
-      
+    <!-- EXPERT CHATBOX IMPLEMENTATION -->
+    <div class="chat-widget">
         
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <h4>Cloud Expert Support</h4>
+                    <p><span class="pulse-dot" style="animation: none; width: 6px; height: 6px;"></span> Typically replies in 5 mins</p>
+                </div>
+                <div class="chat-header-actions">
+                    <button class="chat-end-btn" id="chatEndBtn" title="End Chat">End Chat</button>
+                    <button class="chat-close" id="chatCloseBtn" title="Close">&times;</button>
+                </div>
+            </div>
 
+            <!-- Stage 1: Lead Capture Form -->
+            <div class="chat-body chat-form-view" id="chatFormView">
+                <p>Welcome to Interstolix! Please provide your details so our Cloud Architect can assist you better.</p>
+                <form id="chatLeadForm">
+                    <div class="chat-input-group">
+                        <input type="text" id="chatName" placeholder="Your Name" required>
+                    </div>
+                    <div class="chat-input-group">
+                        <input type="email" id="chatEmail" placeholder="Email Address" required>
+                    </div>
+                    <div class="chat-input-group">
+                        <input type="tel" id="chatPhone" placeholder="Phone Number" required>
+                    </div>
+                    <div class="chat-input-group">
+                        <textarea id="chatInitialMsg" placeholder="How can we help with your infrastructure?" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="chat-submit-btn">Start Chat</button>
+                </form>
+            </div>
 
-
-
-
-
-<!-- 🔹 Why Interstolix Section -->
-<section class="why-section text-white py-5">
-  <div class="boxed hero-card text-center">
-    <h2 class="display-5 fw-bold mb-4">Why Choose Interstolix?</h2>
-    <p class="lead text-secondary mb-5">We're not just building cloud systems — we're shaping the future with intelligence.</p>
-
-    <div class="row g-4">
-      
-      <!-- Feature 1 -->
-      <div class="col-md-4 d-flex">
-        <div class="card feature-card border-0 rounded-4 w-100 p-4 shadow-sm">
-          <i class="bi bi-cpu-fill fs-1 text-info mb-3"></i>
-          <h5 class="fw-bold mb-2">AI-Driven Architecture</h5>
-          <p class="text-secondary">Our solutions learn, adapt, and optimize automatically — so your business stays ahead of the curve.</p>
+            <!-- Stage 2: Active Chat Interface -->
+            <div class="chat-body chat-active-view" id="chatActiveView">
+                <div class="chat-messages" id="chatMessagesBox"></div>
+                <div class="chat-input-area">
+                    <input type="text" id="chatMessageInput" placeholder="Type your message...">
+                    <button class="chat-send-btn" id="chatSendBtn"><i class="bi bi-send-fill"></i></button>
+                </div>
+            </div>
         </div>
-      </div>
 
-      <!-- Feature 2 -->
-      <div class="col-md-4 d-flex">
-        <div class="card feature-card border-0 rounded-4 w-100 p-4 shadow-sm">
-          <i class="bi bi-cloud-check-fill fs-1 text-info mb-3"></i>
-          <h5 class="fw-bold mb-2">Scalable Cloud Ecosystems</h5>
-          <p class="text-secondary">From startups to enterprises — we build infrastructure that grows as you do, seamlessly.</p>
-        </div>
-      </div>
-
-      <!-- Feature 3 -->
-      <div class="col-md-4 d-flex">
-        <div class="card feature-card border-0 rounded-4 w-100 p-4 shadow-sm">
-          <i class="bi bi-shield-lock-fill fs-1 text-info mb-3"></i>
-          <h5 class="fw-bold mb-2">Enterprise-Grade Security</h5>
-          <p class="text-secondary">Built-in encryption, compliance, and zero-trust design — security is our foundation, not a feature.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-<section class="testimonials-section text-white py-5">
-  <div class="boxed text-center">
-    <h2 class="display-5 fw-bold mb-4">What Our Clients Say</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="p-4 rounded  shadow-sm">
-          <p class="text-secondary">“Interstolix transformed our cloud infrastructure — their AI solutions are game-changing.”</p>
-          <h6 class="mt-3 text-white">— CTO, GlobalTech</h6>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="p-4 rounded  shadow-sm">
-          <p class="text-secondary">“Reliable, scalable, and smart — couldn’t ask for a better partner for our SaaS platform.”</p>
-          <h6 class="mt-3 text-white">— Founder, SaaSCo</h6>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="p-4 rounded  shadow-sm">
-          <p class="text-secondary">“Top-notch cloud security. Their engineers really know their stuff.”</p>
-          <h6 class="mt-3 text-white">— IT Director, FinEdge</h6>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-
-
-<section class="faq-section text-white py-5">
-  <div class="boxed">
-    <h2 class="display-5 fw-bold text-center mb-4">Frequently Asked Questions</h2>
-    <div class="accordion" id="faqAccordion">
-      <div class="accordion-item  text-white border-0 mb-2">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed  text-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-            What industries do you serve?
-          </button>
-        </h2>
-        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-          <div class="accordion-body text-secondary">
-            We work with tech startups, finance, healthcare, e-commerce, and enterprise businesses.
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item  text-white border-0 mb-2">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed  text-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-            Do you offer support after deployment?
-          </button>
-        </h2>
-        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-          <div class="accordion-body text-secondary">
-            Yes, we offer managed support, monitoring, and optimization after deployment.
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-<section class="newsletter-section py-5 text-dark">
-  <div class="boxed px-3">
-    <div class="row gy-4 align-items-center">
-      <!-- Text -->
-      <div class="col-12 col-lg-6 text-center text-lg-start">
-        <h3 class="fw-bold mb-2">Stay Updated</h3>
-        <p class="text-secondary mb-0">Get the latest updates on AI, Cloud, and Infrastructure solutions.</p>
-      </div>
-
-      <!-- Form -->
-      <div class="col-12 col-lg-6">
-        <form class="newsletter-form d-flex flex-column flex-sm-row gap-2 justify-content-center justify-content-lg-end">
-          <input type="email" class="form-control" placeholder="Enter your email" required>
-          <button type="submit" class="btn btn-primary px-4">Subscribe</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- 🔹 Footer -->
-<footer class="site-footer footer text-white pt-5 pb-4">
-  <div class="boxed px-3">
-    <div class="row gy-4 text-center text-md-start">
-      
-      <!-- Logo -->
-    
-<div class="col-12 col-md-4 text-md-start text-center">
-  <img src="logointer1.png" alt="Interstolix Logo Dark" class="footer-logo footer-logo-dark mb-3">
-  <img src="translight1.png" alt="Interstolix Logo Light" class="footer-logo footer-logo-light mb-3">
-
-  <p class="text-secondary small">
-    Interstolix engineers modern cloud, AI, and infrastructure solutions tailored for businesses across the globe.
-  </p>
-</div>
-
-  
-
-      <!-- Company -->
-      <div class="col-6 col-md-2">
-        <h6 class="fw-bold mb-3">Company</h6>
-        <ul class="list-unstyled text-secondary small">
-          <li><a href="about.html" class="footer-link">About Interstolix</a></li>
-          <li><a href="Careers.html" class="footer-link">Careers</a></li>
-          <li><a href="contact.html" class="footer-link">Contact</a></li>
-        </ul>
-      </div>
-
-      <!-- Legal -->
-      <div class="col-6 col-md-3">
-        <h6 class="fw-bold mb-3">Privacy & Legal</h6>
-        <ul class="list-unstyled text-secondary small">
-          <li><a href="#" class="footer-link">Your Privacy Choices</a></li>
-          <li><a href="#" class="footer-link">Consumer Health Privacy</a></li>
-          <li><a href="#" class="footer-link">Terms of Use</a></li>
-          <li><a href="#" class="footer-link">Trademarks</a></li>
-          <li><a href="#" class="footer-link">About Our Ads</a></li>
-        </ul>
-      </div>
-
-      <!-- Support -->
-      <div class="col-12 col-md-3">
-        <h6 class="fw-bold mb-3">Support</h6>
-        <ul class="list-unstyled text-secondary small">
-          <li>Email: support@interstolix.com</li>
-          <li>Phone: +92 300 1234567</li>
-        </ul>
-        <div class="mt-3 d-flex justify-content-center justify-content-md-start gap-3">
-          <a href="https://www.facebook.com/Interstolix/" class="text-secondary"><i class="bi bi-facebook"></i></a>
-          <a href="#" class="text-secondary"><i class="bi bi-twitter-x"></i></a>
-          <a href="#" class="text-secondary"><i class="bi bi-linkedin"></i></a>
-        </div>
-      </div>
-
+        <button class="chat-toggle" id="chatToggleBtn">
+            <div class="ping-ring" id="chatPingRing"></div>
+            <span class="notification-badge" id="chatBadge">1</span>
+            <i class="bi bi-chat-dots-fill"></i>
+        </button>
     </div>
 
-   <hr class="border-secondary mt-4">
+    <!-- JAVASCRIPT LOGIC (Chatbox & Mobile Menu) -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            // --- Mobile Menu Logic ---
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mainNav = document.getElementById('mainNav');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                mainNav.classList.toggle('mobile-active');
+                const icon = mobileMenuBtn.querySelector('i');
+                if(mainNav.classList.contains('mobile-active')) {
+                    icon.classList.remove('bi-list');
+                    icon.classList.add('bi-x-lg');
+                } else {
+                    icon.classList.remove('bi-x-lg');
+                    icon.classList.add('bi-list');
+                }
+            });
 
-<div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 gap-2">
+            // --- Chatbox Logic ---
+            const toggleBtn = document.getElementById('chatToggleBtn');
+            const chatWindow = document.getElementById('chatWindow');
+            const closeBtn = document.getElementById('chatCloseBtn');
+            const endBtn = document.getElementById('chatEndBtn');
+            const pingRing = document.getElementById('chatPingRing');
+            const badge = document.getElementById('chatBadge');
+            
+            const formView = document.getElementById('chatFormView');
+            const activeView = document.getElementById('chatActiveView');
+            const leadForm = document.getElementById('chatLeadForm');
+            
+            const messagesBox = document.getElementById('chatMessagesBox');
+            const msgInput = document.getElementById('chatMessageInput');
+            const sendBtn = document.getElementById('chatSendBtn');
 
+            let userName = "";
 
+            toggleBtn.addEventListener('click', () => {
+                chatWindow.classList.toggle('active');
+                pingRing.style.display = 'none';
+                badge.style.display = 'none';
+            });
 
-<button id="theme-toggle" class="theme-toggle-footer">
-  🌙 <span class="theme-label">Dark Mode On</span>
-</button>
+            closeBtn.addEventListener('click', () => {
+                chatWindow.classList.remove('active');
+            });
 
+            leadForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                userName = document.getElementById('chatName').value;
+                const initialMsg = document.getElementById('chatInitialMsg').value;
 
+                formView.style.display = 'none';
+                activeView.style.display = 'flex';
+                endBtn.style.display = 'block';
 
+                messagesBox.innerHTML = '';
 
-  <p id="user-country" class="mb-0 text-secondary small">Language: Detecting...</p>
-  <div class="text-secondary small text-center text-md-end">
-    &copy; Interstolix LLC 2025. All rights reserved.
-  </div>
-</div>
+                appendMessage(initialMsg, 'user');
 
-  </div>
-</footer>
+                setTimeout(() => {
+                    appendMessage(`Hello ${userName}! 👋 I'm reviewing your request regarding your infrastructure. Give me just a moment.`, 'agent');
+                }, 1000);
+            });
 
+            endBtn.addEventListener('click', () => {
+                if(confirm("Are you sure you want to end this chat?")) {
+                    activeView.style.display = 'none';
+                    formView.style.display = 'block';
+                    endBtn.style.display = 'none';
+                    
+                    messagesBox.innerHTML = '';
+                    leadForm.reset();
+                    
+                    chatWindow.classList.remove('active');
+                }
+            });
 
+            function appendMessage(text, sender) {
+                const msgDiv = document.createElement('div');
+                msgDiv.classList.add('chat-msg');
+                msgDiv.classList.add(sender === 'user' ? 'msg-user' : 'msg-agent');
+                msgDiv.textContent = text;
+                messagesBox.appendChild(msgDiv);
+                messagesBox.scrollTop = messagesBox.scrollHeight;
+            }
 
+            function sendMessage() {
+                const text = msgInput.value.trim();
+                if(text !== "") {
+                    appendMessage(text, 'user');
+                    msgInput.value = '';
 
+                    setTimeout(() => {
+                        appendMessage("Thanks for sharing. Our senior cloud architect will connect with you on your provided email/phone shortly to discuss this in detail.", 'agent');
+                    }, 1500);
+                }
+            }
 
-<!-- 🔹 Scroll Progress Bar -->
-
-<div id="scroll-progress-bar"></div>
-<button class="scroll-to-top" id="scrollToTopBtn">
-  <i class="bi bi-chevron-up"></i>
-</button>
-
+            sendBtn.addEventListener('click', sendMessage);
+            msgInput.addEventListener('keypress', (e) => {
+                if(e.key === 'Enter') sendMessage();
+            });
+        });
+    </script>
 </body>
 </html>
-
-
-
-
-
-
-  <!-- Bootstrap Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-
-
-
-<script src="script.js"></script>
-
-
-
-
-
-
-</body>
-</html>
-
-

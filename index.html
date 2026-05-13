@@ -105,13 +105,15 @@
         .section-header { text-align: center; margin-bottom: 60px; }
         .section-header h2 { font-size: 36px; font-weight: 800; margin-bottom: 15px; color: var(--dark); }
         .section-header p { color: var(--gray); font-size: 18px; }
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
         .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+        
         .card { background: #fff; padding: 40px; border-radius: 24px; border: 1px solid var(--border-color); transition: 0.3s; }
         .card:hover { border-color: var(--cyan); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-        .card i { font-size: 40px; color: var(--cyan); display: block; margin-bottom: 20px; }
+        .card i.main-icon { font-size: 40px; color: var(--cyan); display: block; margin-bottom: 20px; }
         .card h4 { font-size: 20px; margin-bottom: 15px; }
-        .card p { color: var(--gray); font-size: 15px; }
+        .card p { color: var(--gray); font-size: 14.5px; }
 
         /* ---------------- PROCESS STEPS ---------------- */
         .step-card { text-align: center; position: relative; padding: 30px 20px; }
@@ -198,7 +200,7 @@
                 top: 70px; 
                 left: 0; 
                 width: 100%; 
-                background: var(--white); /* Solid white to avoid transparent overlap */
+                background: var(--white); 
                 border: 1px solid var(--border-color); 
                 border-radius: 20px; 
                 flex-direction: column; 
@@ -231,7 +233,6 @@
                 width: 100%;
             }
             
-            /* Mobile Dropdown Fix */
             .dropdown-menu { 
                 position: static; 
                 transform: none; 
@@ -240,7 +241,7 @@
                 border: none; 
                 padding: 0 10px 10px 20px; 
                 background: var(--bg-color); 
-                display: none; /* Hidden by default on mobile */
+                display: none; 
                 opacity: 1; 
                 visibility: visible; 
                 border-radius: 12px; 
@@ -248,7 +249,6 @@
                 margin-bottom: 10px;
             }
             
-            /* Class toggled by JavaScript to show dropdown on Mobile */
             .nav-item.active-dropdown .dropdown-menu {
                 display: block;
             }
@@ -258,19 +258,21 @@
         }
 
         @media (max-width: 992px) { 
-            .platform-grid, .grid-3, .grid-4, .footer-grid { grid-template-columns: repeat(2, 1fr); } 
+            .platform-grid, .grid-3, .grid-4, .grid-2, .footer-grid { grid-template-columns: repeat(2, 1fr); } 
             .step-line::after { display: none; } 
             header { border-radius: 30px; } 
         }
 
         @media (max-width: 768px) { 
-            .hero h1 { font-size: 38px; line-height: 1.2; } /* Adjusted font for mobile */
+            .hero h1 { font-size: 38px; line-height: 1.2; } 
             .hero { padding: 160px 20px 100px; } 
-            .grid-3, .grid-4, .footer-grid { grid-template-columns: 1fr; text-align: center; } 
+            .grid-3, .grid-4, .grid-2, .footer-grid { grid-template-columns: 1fr; text-align: center; } 
+            .startup-card { text-align: left; } 
             .footer-col img { margin: 0 auto; display: block; } 
             .footer-bottom { flex-direction: column; text-align: center; gap: 15px;} 
             .cta-banner h2 { font-size: 28px; line-height: 1.3;} 
             .cta-banner { padding: 40px 20px; } 
+            .chat-window { width: 300px; bottom: 70px; right: 0px;} 
             .platform-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; } 
             .platform-card { padding: 20px 10px; }
             .section-header h2 { font-size: 28px; }
@@ -286,7 +288,6 @@
                 <img src="translight1.png" alt="Interstolix Logo" class="logo-img">
             </a>
             
-            <!-- Mobile Menu Toggle Button -->
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="bi bi-list"></i>
             </button>
@@ -384,27 +385,119 @@
         </div>
     </section>
 
-    <!-- CORE SOLUTIONS -->
+    <!-- CORE EXPERTISE SECTION (6 CARDS) -->
     <section class="section-container" id="solutions">
         <div class="section-header">
             <h2>Our Core Expertise</h2>
-            <p>Tailored enterprise cloud services designed for maximum scalability.</p>
+            <p>Tailored enterprise cloud services designed for maximum scalability and intelligence.</p>
         </div>
         <div class="grid-3">
             <div class="card">
-                <i class="bi bi-cloud-arrow-up"></i>
+                <i class="bi bi-cloud-arrow-up main-icon"></i>
                 <h4>Cloud Migration</h4>
                 <p>Seamlessly move your legacy on-premise workloads to the cloud with zero data loss and minimal downtime.</p>
             </div>
             <div class="card">
-                <i class="bi bi-gear-wide-connected"></i>
+                <i class="bi bi-gear-wide-connected main-icon"></i>
                 <h4>DevOps Automation</h4>
                 <p>Accelerate release cycles by implementing robust CI/CD pipelines, Docker, Kubernetes, and IaC.</p>
             </div>
             <div class="card">
-                <i class="bi bi-shield-check"></i>
+                <i class="bi bi-shield-check main-icon"></i>
                 <h4>Managed Cloud Security</h4>
                 <p>24/7 proactive monitoring, threat detection, and compliance management (SOC2, HIPAA, GDPR).</p>
+            </div>
+            <div class="card">
+                <i class="bi bi-cpu main-icon"></i>
+                <h4>AI & ML Implementation</h4>
+                <p>Bring intelligence to your data. We build and deploy custom Machine Learning models and AI pipelines on the cloud.</p>
+            </div>
+            <div class="card">
+                <i class="bi bi-cloud-plus main-icon"></i>
+                <h4>Zero to Cloud Lifecycle</h4>
+                <p>Starting from scratch? We handle everything from account setup to full production deployment for traditional businesses.</p>
+            </div>
+            <div class="card">
+                <i class="bi bi-robot main-icon"></i>
+                <h4>LLM & GenAI Integration</h4>
+                <p>Implement Large Language Models (LLMs) on high-performance cloud instances for intelligent search and automation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- IMPACT ON STARTUPS SECTION (4 FULL CARDS) -->
+    <section class="section-container" id="startup-impact">
+        <div class="section-header">
+            <div style="background: var(--white); border: 1px solid var(--border-color); padding: 8px 20px; border-radius: 100px; display: inline-block; font-size: 13px; font-weight: 700; color: var(--cyan); margin-bottom: 20px;">
+                🚀 Startup Growth Engine
+            </div>
+            <h2>Empowering New Businesses</h2>
+            <p>Startups and emerging enterprises need agility, low upfront costs, and massive scalability. Dekhein kaise humari cloud strategies mukhtalif industries mein startups ki growth ko boost karti hain.</p>
+        </div>
+        
+        <div class="grid-2">
+            <!-- FinTech Card -->
+            <div class="card startup-card" style="text-align: left;">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                    <div style="width: 60px; height: 60px; background: #e6f6fc; color: var(--cyan); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 28px;">
+                        <i class="bi bi-bank"></i>
+                    </div>
+                    <h4 style="margin: 0; font-size: 22px;">FinTech & Banking</h4>
+                </div>
+                <p style="margin-bottom: 15px;">FinTech startups ke liye trust aur speed sab se zaroori hai. Hum secure, compliant aur high-speed transaction environments design karte hain.</p>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 8px; font-size: 14px; color: var(--gray);"><i class="bi bi-check-circle-fill" style="color: var(--cyan); margin-right: 8px;"></i> <strong>PCI-DSS Compliance:</strong> Secure payment gateways.</li>
+                    <li style="margin-bottom: 8px; font-size: 14px; color: var(--gray);"><i class="bi bi-check-circle-fill" style="color: var(--cyan); margin-right: 8px;"></i> <strong>Zero-Latency:</strong> Auto-scaling during peak trading hours.</li>
+                    <li style="margin-bottom: 8px; font-size: 14px; color: var(--gray);"><i class="bi bi-check-circle-fill" style="color: var(--cyan); margin-right: 8px;"></i> <strong>AI Fraud Detection:</strong> Integrated machine learning tools.</li>
+                </ul>
+            </div>
+
+            <!-- E-Commerce Card -->
+            <div class="card startup-card" style="text-align: left;">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                    <div style="width: 60px; height: 60px; background: #e6f6fc; color: var(--cyan); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 28px;">
+                        <i class="bi bi-cart3"></i>
+                    </div>
+                    <h4 style="margin: 0; font-size: 22px;">E-Commerce & Retail</h4>
+                </div>
+                <p style="margin-bottom: 15px;">Naye e-commerce brands ko achanak aane wali web traffic aur inventory sync ke issues hote hain. Cloud inko gracefully handle karta hai.</p>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 8px; font-size: 14px; color: var(--gray);"><i class="bi bi-check-circle-fill" style="color: var(--cyan); margin-right: 8px;"></i> <strong>Traffic Spikes:</strong> Handle Black Friday sales effortlessly.</li>
+                    <li style="margin-bottom: 8px; font-size: 14px; color: var(--gray);"><i class="bi bi-check-circle-fill" style="color: var(--cyan); margin-right: 8px;"></i> <strong>Global CDN:</strong> Millisecond load times worldwide.</li>
+                    <li style="margin-bottom: 8px; font-size: 14px; color: var(--gray);"><i class="bi bi-check-circle-fill" style="color: var(--cyan); margin-right: 8px;"></i> <strong>Personalization:</strong> Real-time user recommendation engines.</li>
+                </ul>
+            </div>
+
+            <!-- HealthTech Card -->
+            <div class="card startup-card" style="text-align: left;">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                    <div style="width: 60px; height: 60px; background: #e6f6fc; color: var(--cyan); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 28px;">
+                        <i class="bi bi-heart-pulse"></i>
+                    </div>
+                    <h4 style="margin: 0; font-size: 22px;">HealthTech & MedTech</h4>
+                </div>
+                <p style="margin-bottom: 15px;">Healthcare startups ko patient data ki security aur heavy diagnostic data ko process karne ke liye enterprise-grade solutions chahiye hote hain.</p>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 8px; font-size: 14px; color: var(--gray);"><i class="bi bi-check-circle-fill" style="color: var(--cyan); margin-right: 8px;"></i> <strong>HIPAA Compliance:</strong> End-to-end encrypted patient records.</li>
+                    <li style="margin-bottom: 8px; font-size: 14px; color: var(--gray);"><i class="bi bi-check-circle-fill" style="color: var(--cyan); margin-right: 8px;"></i> <strong>Telemedicine:</strong> Lag-free video streaming architecture.</li>
+                    <li style="margin-bottom: 8px; font-size: 14px; color: var(--gray);"><i class="bi bi-check-circle-fill" style="color: var(--cyan); margin-right: 8px;"></i> <strong>Big Data Analytics:</strong> Faster medical research processing.</li>
+                </ul>
+            </div>
+
+            <!-- SaaS Card -->
+            <div class="card startup-card" style="text-align: left;">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                    <div style="width: 60px; height: 60px; background: #e6f6fc; color: var(--cyan); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 28px;">
+                        <i class="bi bi-code-slash"></i>
+                    </div>
+                    <h4 style="margin: 0; font-size: 22px;">SaaS & Software Startups</h4>
+                </div>
+                <p style="margin-bottom: 15px;">Hardware cost ko zero karein aur apni app ko tezi se market mein le kar aayen. Humara DevOps model developers ko un-block karta hai.</p>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 8px; font-size: 14px; color: var(--gray);"><i class="bi bi-check-circle-fill" style="color: var(--cyan); margin-right: 8px;"></i> <strong>Zero CapEx:</strong> No physical servers required (Pay-as-you-go).</li>
+                    <li style="margin-bottom: 8px; font-size: 14px; color: var(--gray);"><i class="bi bi-check-circle-fill" style="color: var(--cyan); margin-right: 8px;"></i> <strong>CI/CD Pipelines:</strong> Deploy features multiple times a day.</li>
+                    <li style="margin-bottom: 8px; font-size: 14px; color: var(--gray);"><i class="bi bi-check-circle-fill" style="color: var(--cyan); margin-right: 8px;"></i> <strong>Microservices:</strong> Scalable and crash-resistant app architecture.</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -447,17 +540,17 @@
         </div>
         <div class="grid-3">
             <div class="card" style="background: var(--bg-color);">
-                <i class="bi bi-patch-check-fill"></i>
+                <i class="bi bi-patch-check-fill main-icon"></i>
                 <h4>Certified Cloud Architects</h4>
                 <p>Our team holds top-tier certifications from AWS, Microsoft Azure, and Google Cloud Platform.</p>
             </div>
             <div class="card" style="background: var(--bg-color);">
-                <i class="bi bi-headset"></i>
+                <i class="bi bi-headset main-icon"></i>
                 <h4>24/7 NOC Support</h4>
                 <p>Our Network Operations Center monitors your critical infrastructure round-the-clock, 365 days a year.</p>
             </div>
             <div class="card" style="background: var(--bg-color);">
-                <i class="bi bi-graph-down-arrow"></i>
+                <i class="bi bi-graph-down-arrow main-icon"></i>
                 <h4>Cloud Cost Optimization</h4>
                 <p>We continuously analyze resource utilization to prevent cloud waste, saving clients an average of 30%.</p>
             </div>
@@ -633,16 +726,14 @@
                     if(window.innerWidth <= 1150) {
                         const dropdown = this.nextElementSibling;
                         if(dropdown && dropdown.classList.contains('dropdown-menu')) {
-                            e.preventDefault(); // Prevent jump to top
+                            e.preventDefault(); 
                             
-                            // Close others
                             document.querySelectorAll('.nav-item').forEach(item => {
                                 if(item !== this.parentElement) {
                                     item.classList.remove('active-dropdown');
                                 }
                             });
                             
-                            // Toggle current
                             this.parentElement.classList.toggle('active-dropdown');
                         }
                     }
@@ -685,6 +776,7 @@
                 formView.style.display = 'none';
                 activeView.style.display = 'flex';
                 endBtn.style.display = 'block';
+
                 messagesBox.innerHTML = '';
 
                 appendMessage(initialMsg, 'user');

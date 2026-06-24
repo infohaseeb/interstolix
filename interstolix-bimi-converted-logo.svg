@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny-ps" viewBox="0 0 100 100">
+  <title>Interstolix</title>
+  <line x1="25" y1="15" x2="75" y2="85" stroke="#88929b" stroke-width="15" stroke-linecap="round"/>
+  <line x1="25" y1="85" x2="75" y2="15" stroke="#00A3E0" stroke-width="15" stroke-linecap="round"/>
+</svg>
